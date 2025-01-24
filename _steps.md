@@ -1,4 +1,4 @@
-## Inicialização do projeto | GIT
+### Inicialização do projeto | GIT
 
 Arquivo `README.md` criado, adicionado ao repositório e enviado ao GitHub:
 
@@ -10,6 +10,17 @@ git add .
 git commit -m "Inicializa GIT"
 git remote add origin git@github.com:cafecomlucas/origamidDogsReactWeb.git
 git push -u origin main
+```
+
+---
+
+### Criação da estrutura inicial | Vite
+
+O NPM possui o cli onde é possível gerar um projeto automáticamente utilizando o Vite. O Vite é uma alternativa ao Webpack (com os loaders de CSS, imagens, etc), que utiliza ES modules, é mais pertormático e vem com o CSS modules pronto pra uso. Novo projeto criado e dependências instaladas:
+
+```bash
+npm create vite@latest .
+npm install
 ```
 
 ---
