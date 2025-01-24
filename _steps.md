@@ -24,3 +24,9 @@ npm install
 ```
 
 ---
+
+### Estrutura inicial | Edição/Limpeza de arquivos
+
+O arquivos padrão `index.html`/`index.jsx`/`App.jsx` foram limpos e os arquivos desnecessários foram removidos.
+
+---
