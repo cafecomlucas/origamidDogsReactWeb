@@ -59,3 +59,23 @@ O CSS de uso global foi criado na pasta `src`. Arquivo:
 ```
 
 ---
+
+### Componente Login | Configuração do react-router-dom
+
+O Componente `Login` foi criado com a estrutura inicial para poder exibir a página de login. Arquivo:
+
+```bash
+./src/Components/Login/Login.jsx
+```
+
+O pacote `react-router-dom` foi instalado para poder lidar com diferentes rotas no browser:
+
+```bash
+npm install react-router-dom
+```
+
+O Componente `App` foi alterado para utilizar o `react-router-dom` e mostrar o Componente `Home` na rota `/` e exibir o Componente `Login` na rota `/login`. Como os componentes `Header` e `Footer` se repetem em todas as páginas, a alteração foi feita para que apenas o "miolo" de cada página mude ao acessar cada rota.
+
+No Componente `Header` foram incluídos links para as rotas das páginas `Home` e `Login`.
+
+---
