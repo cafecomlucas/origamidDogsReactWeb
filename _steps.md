@@ -93,3 +93,18 @@ Após a instalação a configuração foi atualizada no arquivo `vite.config.js`
 Também foi definida a estilização específica do `Header` e foram feitos ajustes no CSS global.
 
 ---
+
+### Configuração das rotas de Login | Correção nas rotas do App
+
+No componente `Login` foram configuradas rotas internas (nested routes) e os arquivos iniciais para as páginas:
+
+- login (`LoginForm`)
+- criação de novo usuário (`LoginNewUser`)
+- recuperação da senha do usuário (`LoginRecoveryPassword`)
+- reset da senha do usuário (`LoginResetPassword`)
+
+Foi necessário modificar o Componente `App` para a rota de `login` aceitar as rotas internas.
+
+Também foi feita uma correção no `App`. A configuração inicial das rotas estava utilizando a propriedade 'Component' e foi feito o ajuste para utilizar a propriedade 'element'.
+
+---
