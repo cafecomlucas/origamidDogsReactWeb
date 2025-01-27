@@ -94,11 +94,11 @@ Também foi definida a estilização específica do `Header` e foram feitos ajus
 
 ---
 
-### Configuração das rotas de Login | Correção nas rotas do App
+### Configuração das rotas de Login | Correção na config de rotas no App
 
-No componente `Login` foram configuradas rotas internas (nested routes) e os arquivos iniciais para as páginas:
+No componente `Login` foram configuradas rotas internas (nested routes) e os arquivos iniciais para os componentes:
 
-- login (`LoginForm`)
+- logar/autenticação (`LoginForm`)
 - criação de novo usuário (`LoginNewUser`)
 - recuperação da senha do usuário (`LoginRecoveryPassword`)
 - reset da senha do usuário (`LoginResetPassword`)
@@ -106,5 +106,16 @@ No componente `Login` foram configuradas rotas internas (nested routes) e os arq
 Foi necessário modificar o Componente `App` para a rota de `login` aceitar as rotas internas.
 
 Também foi feita uma correção no `App`. A configuração inicial das rotas estava utilizando a propriedade 'Component' e foi feito o ajuste para utilizar a propriedade 'element'.
+
+---
+
+### LoginForm | Obtendo o token da API
+
+Foi criada a estrutura do componente de autenticação com o nome de usuário (`username`) e senha (`password`) sendo enviados para API, que retorna o token de autenticação.
+
+Dados para teste (já cadastrados na API):
+
+- username: `dog`
+- password: `dog`
 
 ---
