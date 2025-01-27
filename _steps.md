@@ -79,3 +79,17 @@ O Componente `App` foi alterado para utilizar o `react-router-dom` e mostrar o C
 No Componente `Header` foram incluídos links para as rotas das páginas `Home` e `Login`.
 
 ---
+
+### Configuração do vite-plugin-svgr | Header: Componente e estilos
+
+Para importação de imagens svg foi instalado o plugin svgr do Vite:
+
+```bash
+npm install vite-plugin-svgr
+```
+
+Após a instalação a configuração foi atualizada no arquivo `vite.config.js` e o Componente `src/Components/Header.jsx` foi atualizado com a importação de arquivo SVG.
+
+Também foi definida a estilização específica do `Header` e foram feitos ajustes no CSS global.
+
+---
