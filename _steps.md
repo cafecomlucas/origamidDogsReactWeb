@@ -119,3 +119,19 @@ Dados para teste (já cadastrados na API):
 - password: `dog`
 
 ---
+
+### LoginForm | Componetizando e estilizando os itens do formulário
+
+Os elementos `input` e `button` foram transformados em componentes para reutilização. Cada componente foi criado com a própria estrutura e estilização.
+
+Para os campos de formulário foram criados os arquivos:
+
+- `...Components/Forms/Input.jsx`
+- `...Components/Forms/Input.module.css`
+
+Para os botões foram criados os os arquivos:
+
+- `...Components/Forms/Button.jsx`
+- `...Components/Forms/Button.module.css`
+
+---
