@@ -135,3 +135,24 @@ Para os botões foram criados os os arquivos:
 - `...Components/Forms/Button.module.css`
 
 ---
+
+### LoginForm | Custom Hook pro estado dos inputs | Isolando a lógica
+
+Os campos dos inputs `username` e `password` possuem a mesma lógica para modificar o próprio estado. Na função de callback para o onChange do input, o valor de `target.value` é resgatado e passado para o modificador do estado (`setUsername` ou `setPassword`).
+
+Por possuirem a mesma lógica, é possível usar um custom Hook para evitar a replicação de modificadores do estado para cada input existente.
+
+No novo custom Hook `useForm`, ao invés de `username` ou `password` foi criado um estado mais genérico chamado `value` e também o modificador `setValue`. Nesse custom Hook também foi criado também o método `onChange` que utiliza o `setValue` para modificar o próprio estado.
+
+Dessa forma, na exportação do objeto do custom Hook `useForm` é necessário expor apenas o método `onChange`, que é passado diretamente para o callback onChange do input, sem precisar se preocupar com o modificador individual de cada estado (`setUsername` ou `setPassword`).
+
+Então o modificador do estado ficou isolado dentro do custom Hook `useForm`, o que evita a passagem de um modificador diferente para cada função de callback do onChange do input.
+
+Em outras palavras:
+
+- a lógica do `setUsername` e `setPassword` foi isolada no `setValue`
+- `setValue` não precisa ir "direto" pro callback onChange do input
+- agora quem vai direto pro callback onChange do input é o onChange do `useForm`
+- o onChange do `userForm` cuida da alteração de valor, sem precisar expor o próprio modificador (`setValue`)
+
+---

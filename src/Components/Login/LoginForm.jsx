@@ -1,10 +1,11 @@
 import React from 'react';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
+import useForm from '../../Hooks/useForm';
 
 const LoginForm = () => {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const username = useForm();
+  const password = useForm();
 
   const handleSubmit = React.useCallback(
     async (e) => {
@@ -17,32 +18,23 @@ const LoginForm = () => {
             'Content-type': 'application/json',
           },
           body: JSON.stringify({
-            username,
-            password,
+            username: username.value,
+            password: password.value,
           }),
         },
       );
       const { token } = await response.json();
       // save token
+      console.log(token);
     },
-    [username, password],
+    [username.value, password.value],
   );
 
   return (
     <section>
       <form onSubmit={handleSubmit}>
-        <Input
-          label="Usuário"
-          type="text"
-          name="username"
-          onChange={({ target }) => setUsername(target.value)}
-        />
-        <Input
-          label="Senha"
-          type="password"
-          name="password"
-          onChange={({ target }) => setPassword(target.value)}
-        />
+        <Input label="Usuário" type="text" name="username" {...username} />
+        <Input label="Senha" type="password" name="password" {...password} />
         <Button>Entrar</Button>
       </form>
     </section>
