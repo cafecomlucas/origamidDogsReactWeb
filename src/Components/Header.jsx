@@ -5,8 +5,7 @@ import React from 'react';
 import { UserContext } from '../UserContext';
 
 const Header = () => {
-  const user = React.useContext(UserContext);
-  console.log(user);
+  const { userData } = React.useContext(UserContext);
 
   return (
     <header className={styles.header}>
@@ -14,9 +13,15 @@ const Header = () => {
         <Link className={styles.logo} to="/" aria-label="Dogs - Home">
           <Dogs />
         </Link>
-        <Link className={styles.login} to="login">
-          Login
-        </Link>
+        {userData ? (
+          <Link className={styles.login} to="account">
+            {userData.username}
+          </Link>
+        ) : (
+          <Link className={styles.login} to="login">
+            Login
+          </Link>
+        )}
       </nav>
     </header>
   );

@@ -45,7 +45,7 @@ Os primeiros componentes foram criados na pasta `src/Components`. Arquivos:
 
 #### Primeiros arquivos CSS
 
-O CSS específicos dos componentes `Header` e `Footer` foram criados na pasta `src/Components` utilizando o CSS modules. Não foi necessário um arquivo CSS pro componente `Home`. Arquivos:
+O CSS específicos dos componentes `Header` e `Footer` foram criados na pasta `src/Components` utilizando o CSS modules. Não foi necessário um arquivo CSS pro Componente `Home`. Arquivos:
 
 ```bash
 ./src/Components/Header.module.css
@@ -96,7 +96,7 @@ Também foi definida a estilização específica do `Header` e foram feitos ajus
 
 ### Configuração das rotas de Login | Correção na config de rotas no App
 
-No componente `Login` foram configuradas rotas internas (nested routes) e os arquivos iniciais para os componentes:
+No Componente `Login` foram configuradas rotas internas (nested routes) e os arquivos iniciais para os componentes:
 
 - logar/autenticação (`LoginForm`)
 - criação de novo usuário (`LoginNewUser`)
@@ -111,7 +111,7 @@ Também foi feita uma correção no `App`. A configuração inicial das rotas es
 
 ### LoginForm | Obtendo o token da API
 
-Foi criada a estrutura do componente de autenticação com o nome de usuário (`username`) e senha (`password`) sendo enviados para API, que retorna o token de autenticação.
+Foi criada a estrutura do Componente de autenticação com o nome de usuário (`username`) e senha (`password`) sendo enviados para API, que retorna o token de autenticação.
 
 Dados para teste (já cadastrados na API):
 
@@ -122,7 +122,7 @@ Dados para teste (já cadastrados na API):
 
 ### LoginForm | Componetizando e estilizando os itens do formulário
 
-Os elementos `input` e `button` foram transformados em componentes para reutilização. Cada componente foi criado com a própria estrutura e estilização.
+Os elementos `input` e `button` foram transformados em componentes para reutilização. Cada Componente foi criado com a própria estrutura e estilização.
 
 Para os campos de formulário foram criados os arquivos:
 
@@ -175,7 +175,7 @@ No evento `onBlur`: O valor utilizado para validação é o último valor do est
 
 #### No evento de callback `onSubmit`
 
-O valor utilizado para validação é o último valor do estado de `value`. O custom Hook `useForm` exporta o método com o nome `validate`, que chama o método interno e passa o `value` interno como parâmetro (assim não é necessário passar o value ao chamar o método externamente). No componente `LoginForm` a validação é feita através da chamada do método `validate` (sem precisar passar parâmetros) no disparo evento de callback `onSubmit.
+O valor utilizado para validação é o último valor do estado de `value`. O custom Hook `useForm` exporta o método com o nome `validate`, que chama o método interno e passa o `value` interno como parâmetro (assim não é necessário passar o value ao chamar o método externamente). No Componente `LoginForm` a validação é feita através da chamada do método `validate` (sem precisar passar parâmetros) no disparo evento de callback `onSubmit.
 
 ---
 
@@ -183,13 +183,13 @@ O valor utilizado para validação é o último valor do estado de `value`. O cu
 
 Antes de começar a utilizar outros endpoints da API os dados da API e a lógica das requisições foram isoladas no arquivo `api.jsx`, assim é possível manter os endpoints e as requisições em um só lugar.
 
-O componente `LoginForm` foi modificado para o utilizar o novo jeito de realizar uma requisição.
+O Componente `LoginForm` foi modificado para o utilizar o novo jeito de realizar uma requisição.
 
 ---
 
 ### LoginForm | Obtendo usuário | API | GET_USER
 
-No arquivo `api.jsx` foi adicionado a config de um novo endpoint para obter o usuário. No componente `LoginForm` o endpoint é chamado através do novo método `getUser` logo após o envio do formulário.
+No arquivo `api.jsx` foi adicionado a config de um novo endpoint para obter o usuário. No Componente `LoginForm` o endpoint é chamado através do novo método `getUser` logo após o envio do formulário.
 
 ---
 
@@ -197,20 +197,31 @@ No arquivo `api.jsx` foi adicionado a config de um novo endpoint para obter o us
 
 Como vai ser necessário verificar se o usuário está logado e acessar os dados dele em qualquer ponto da aplicação, o arquivo `UserContext` foi criado para configurar um estado global.
 
-O componente `App` foi modificado para que a aplicação inteira tenha acesso aos dados globais do usuário setados no contexto de `UserContext`.
+O Componente `App` foi modificado para que a aplicação inteira tenha acesso aos dados globais do usuário setados no contexto de `UserContext`.
 
-O acesso ao estado global foi confirmado no componente `Header` ao importar o contexto e exibir os dados globais de `user` no console.
+O acesso ao estado global foi confirmado no Componente `Header` ao importar o contexto e exibir os dados globais de `user` no console.
 
 ---
 
 ### ContextAPI | Isolando a lógica de obtenção do token e do usuário
 
-A lógica da obtenção to token e de obtenção do usuário foi movida para dentro do componente `UserContextStorage`.
+A lógica da obtenção to token e de obtenção do usuário foi movida para dentro do Componente `UserContextStorage`.
 
-O componente `UserContextStorage` disponibiliza o método global `userLogin`, que obtem o token e chama o método interno `getUser`, que faz a requisição para obtenção dos dados do usuário.
+O Componente `UserContextStorage` disponibiliza o método global `userLogin`, que obtem o token e chama o método interno `getUser`, que faz a requisição para obtenção dos dados do usuário.
 
-Com os dados do usuário dentro do componente de contexto, foi possível setar os dados de usuário no estado global `userData`, ficando disponível para toda a aplicação.
+Com os dados do usuário dentro do Componente de contexto, foi possível setar os dados de usuário no estado global `userData`, ficando disponível para toda a aplicação.
 
-Dessa forma as importações das configs da API foram movidas direto para o arquivo de contexto, não precisando mais estar dentro do componente `LoginForm`.
+Dessa forma as importações das configs da API foram movidas direto para o arquivo de contexto, não precisando mais estar dentro do Componente `LoginForm`.
+
+---
+
+### Header | Account | Nova rota para a página da conta do usuário
+
+No Componente `Header` foi criado um link condicional que:
+
+- envia para a rota `/login` se os dados do usuário não estiverem definidos (usuário deslogado)
+- envia para a rota `/account` se os dados de usuário estiverem definidos (usuário logado)
+
+Foi criada a estrutura inicial do Componente `Account`. O Componente `Account` foi associado a rota `/account` no Componente `App`.
 
 ---
