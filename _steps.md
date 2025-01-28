@@ -197,8 +197,20 @@ No arquivo `api.jsx` foi adicionado a config de um novo endpoint para obter o us
 
 Como vai ser necessário verificar se o usuário está logado e acessar os dados dele em qualquer ponto da aplicação, o arquivo `ContextUser` foi criado para configurar um estado global.
 
-O componente `App` foi modificado para que a aplicação inteira tenha acesso aos dados globais do usuário setados no componente `ContextUser`.
+O componente `App` foi modificado para que a aplicação inteira tenha acesso aos dados globais do usuário setados no contexto de `ContextUser`.
 
 O acesso ao estado global foi confirmado no componente `Header` ao importar o contexto e exibir os dados globais de `user` no console.
+
+---
+
+### ContextAPI | Isolando a lógica de obtenção do token e do usuário
+
+A lógica da obtenção to token e de obtenção do usuário foi movida para dentro do componente `ContextStorage`.
+
+O componente `ContextStorage` disponibiliza o método global `userLogin`, que obtem o token e chama o método interno `getUser`, que faz a requisição para obtenção dos dados do usuário.
+
+Com os dados do usuário dentro do componente de contexto, foi possível setar os dados de usuário no estado global `userData`, ficando disponível para toda a aplicação.
+
+Dessa forma as importações das configs da API foram movidas direto para o arquivo de contexto, não precisando mais estar dentro do componente `LoginForm`.
 
 ---
