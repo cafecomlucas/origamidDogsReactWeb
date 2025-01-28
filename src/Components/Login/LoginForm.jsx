@@ -10,6 +10,13 @@ const LoginForm = () => {
   const handleSubmit = React.useCallback(
     async (e) => {
       e.preventDefault();
+
+      let statusValidate = true;
+
+      statusValidate = username.validate();
+      statusValidate = password.validate();
+
+      if (!statusValidate) return null;
       const response = await fetch(
         'https://dogsapi.origamid.dev/json/jwt-auth/v1/token',
         {
@@ -27,7 +34,7 @@ const LoginForm = () => {
       // save token
       console.log(token);
     },
-    [username.value, password.value],
+    [username, password],
   );
 
   return (

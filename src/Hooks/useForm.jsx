@@ -2,12 +2,30 @@ import React from 'react';
 
 const useForm = () => {
   const [value, setValue] = React.useState('');
+  const [error, setError] = React.useState(null);
 
-  const onChange = ({ target }) => {
-    setValue(target.value);
+  const validate = (value) => {
+    if (value.length === 0) {
+      setError('Preencha um valor');
+      return false;
+    }
+    setError('');
+    return true;
   };
 
-  return { value, onChange };
+  const onChange = ({ target }) => {
+    const { value: lastValue } = target;
+    if (error) validate(lastValue);
+    setValue(lastValue);
+  };
+
+  return {
+    value,
+    onChange,
+    error,
+    validate: () => validate(value),
+    onBlur: () => validate(value),
+  };
 };
 
 export default useForm;

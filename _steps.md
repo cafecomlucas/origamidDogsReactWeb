@@ -156,3 +156,23 @@ Em outras palavras:
 - o onChange do `userForm` cuida da alteração de valor, sem precisar expor o próprio modificador (`setValue`)
 
 ---
+
+### LoginForm | Custom Hook | Método para validação
+
+No custom Hook `useForm` foi criado o método `validate`, que valida se o `value` do campo modificado possui algum valor preenchido. Esse método é utilizado em 3 situações:
+
+- quando o usuário altera o campo (evento onChange)
+- quando o usuário sai do campo (evento onBlur)
+- quando o usuário tenta enviar o formulário (evento onSubmit)
+
+#### No evento de callback `onChange`
+
+O estado de `value` ainda é alterado ao final do método e a validação é precisa ser feita antes dessa alteração, por isso o valor utilizado para validação é o de target.value (o último valor do campo) por ser o mais atual que o estado de `value`.
+
+#### No evento de callback `onBlur`
+
+No evento `onBlur`: O valor utilizado para validação é o último valor do estado de `value`. O custom Hook `useForm` exporta o método com o nome `onBlur`, que chama o método interno `validate` e passa o `value` interno como parâmetro (assim não é necessário passar o value ao chamar o método `onBlur` externamente).A validação é feita através da chamada do método `onBlur` (sem precisar passar parâmetros) no disparo evento de callback `onBlur`.
+
+#### No evento de callback `onSubmit`
+
+O valor utilizado para validação é o último valor do estado de `value`. O custom Hook `useForm` exporta o método com o nome `validate`, que chama o método interno e passa o `value` interno como parâmetro (assim não é necessário passar o value ao chamar o método externamente). No componente `LoginForm` a validação é feita através da chamada do método `validate` (sem precisar passar parâmetros) no disparo evento de callback `onSubmit.
