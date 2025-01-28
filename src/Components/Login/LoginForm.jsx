@@ -2,12 +2,12 @@ import React from 'react';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
-import { ContextUser } from '../../ContextUser';
+import { UserContext } from '../../UserContext';
 
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
-  const { userLogin } = React.useContext(ContextUser);
+  const { userLogin } = React.useContext(UserContext);
 
   const handleSubmit = React.useCallback(
     async (e) => {

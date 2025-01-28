@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import Dogs from '../Assets/dogs.svg?react';
 import React from 'react';
-import { ContextUser } from '../ContextUser';
+import { UserContext } from '../UserContext';
 
 const Header = () => {
-  const user = React.useContext(ContextUser);
+  const user = React.useContext(UserContext);
   console.log(user);
 
   return (

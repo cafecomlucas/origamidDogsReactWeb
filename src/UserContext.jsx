@@ -1,9 +1,9 @@
 import React from 'react';
 import { GET_USER, TOKEN_POST } from './api';
 
-export const ContextUser = React.createContext();
+export const UserContext = React.createContext();
 
-export const ContextStorage = ({ children }) => {
+export const UserContextStorage = ({ children }) => {
   const [userData, setUserData] = React.useState(null);
 
   const getUser = React.useCallback(async (token) => {
@@ -27,8 +27,8 @@ export const ContextStorage = ({ children }) => {
   };
 
   return (
-    <ContextUser.Provider value={{ userData, userLogin }}>
+    <UserContext.Provider value={{ userData, userLogin }}>
       {children}
-    </ContextUser.Provider>
+    </UserContext.Provider>
   );
 };

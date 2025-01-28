@@ -4,19 +4,19 @@ import Home from './Components/Home';
 import Footer from './Components/Footer';
 import Login from './Components/Login/Login';
 import './App.css';
-import { ContextStorage } from './ContextUser';
+import { UserContextStorage } from './UserContext';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <ContextStorage>
+      <UserContextStorage>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login/*" element={<Login />} />
         </Routes>
         <Footer />
-      </ContextStorage>
+      </UserContextStorage>
     </BrowserRouter>
   );
 };
