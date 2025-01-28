@@ -192,3 +192,13 @@ O componente `LoginForm` foi modificado para o utilizar o novo jeito de realizar
 No arquivo `api.jsx` foi adicionado a config de um novo endpoint para obter o usuário. No componente `LoginForm` o endpoint é chamado através do novo método `getUser` logo após o envio do formulário.
 
 ---
+
+### ContextAPI | Config do estado global do usuário | Teste no Header
+
+Como vai ser necessário verificar se o usuário está logado e acessar os dados dele em qualquer ponto da aplicação, o arquivo `ContextUser` foi criado para configurar um estado global.
+
+O componente `App` foi modificado para que a aplicação inteira tenha acesso aos dados globais do usuário setados no componente `ContextUser`.
+
+O acesso ao estado global foi confirmado no componente `Header` ao importar o contexto e exibir os dados globais de `user` no console.
+
+---
