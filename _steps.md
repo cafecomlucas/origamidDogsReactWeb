@@ -238,3 +238,17 @@ O estado `isAppLoading` é disponibilizado pra toda a aplicação no retorno do 
 O botão dentro do `LoginForm` usa o estado `isAppLoading` para exibir o botão habilitado ou desabilitado.
 
 ---
+
+### UserContext (método userLogin) | Definindo se a aplicação está com erro
+
+No Componente `UserContextStorage` foi criado o novo estado `appError` que guarda o status de erro da aplicação.
+
+No método `userLogin` foi criado um try/catch para setar a mensagem de erro no `appError` caso a API retorne algum erro.
+
+Se cair no erro, o catch seta a mensagem de erro no `appError`. Ao final do catch o estado de `isAppLoading` é setado para false.
+
+O estado `appError` é disponibilizado pra toda a aplicação no retorno do componente `UserContextStorage` para uso externo.
+
+O Componente `LoginForm` usa o estado de `appError` para exibir a mensagem de erro, no caso dela existir.
+
+Dessa forma, se existir algum erro ao executar o fetch para obter o token dentro do método `userLogin`, o processo é interrompido antes da chamada do método `getUser` (então a requisição para obter os dados do usuário é evitada).

@@ -7,7 +7,7 @@ import { UserContext } from '../../UserContext';
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
-  const { userLogin, isAppLoading } = React.useContext(UserContext);
+  const { userLogin, isAppLoading, appError } = React.useContext(UserContext);
 
   const handleSubmit = React.useCallback(
     async (e) => {
@@ -32,6 +32,7 @@ const LoginForm = () => {
         ) : (
           <Button>Entrar</Button>
         )}
+        {appError && <p style={{ marginTop: '2rem' }}>{appError}</p>}
       </form>
     </section>
   );
