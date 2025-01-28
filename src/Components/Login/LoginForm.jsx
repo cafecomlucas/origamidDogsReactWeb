@@ -7,7 +7,7 @@ import { UserContext } from '../../UserContext';
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
-  const { userLogin } = React.useContext(UserContext);
+  const { userLogin, isAppLoading } = React.useContext(UserContext);
 
   const handleSubmit = React.useCallback(
     async (e) => {
@@ -27,7 +27,11 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />
-        <Button>Entrar</Button>
+        {isAppLoading ? (
+          <Button disabled>Carregando...</Button>
+        ) : (
+          <Button>Entrar</Button>
+        )}
       </form>
     </section>
   );

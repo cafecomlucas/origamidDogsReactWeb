@@ -225,3 +225,16 @@ No Componente `Header` foi criado um link condicional que:
 Foi criada a estrutura inicial do Componente `Account`. O Componente `Account` foi associado a rota `/account` no Componente `App`.
 
 ---
+
+### UserContext | LoginForm | Definindo se a aplicação está carregando
+
+No Componente `UserContextStorage` foi criado o novo estado `isAppLoading` que guarda o status de carregamento da aplicação. O estado foi:
+
+- setado para `true` quando o `userLogin` é chamado
+- setado para `false` na última linha do `getUser`
+
+O estado `isAppLoading` é disponibilizado pra toda a aplicação no retorno do componente `UserContextStorage`.
+
+O botão dentro do `LoginForm` usa o estado `isAppLoading` para exibir o botão habilitado ou desabilitado.
+
+---

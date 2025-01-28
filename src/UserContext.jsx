@@ -5,6 +5,7 @@ export const UserContext = React.createContext();
 
 export const UserContextStorage = ({ children }) => {
   const [userData, setUserData] = React.useState(null);
+  const [isAppLoading, setIsAppLoading] = React.useState(false);
 
   const getUser = React.useCallback(async (token) => {
     const { url, options } = GET_USER(token);
@@ -12,10 +13,12 @@ export const UserContextStorage = ({ children }) => {
     const userRes = await response.json();
     setUserData(userRes);
     console.log('userData: ', userRes);
+    setIsAppLoading(false);
     // ... save user ...
   }, []);
 
   const userLogin = async (username, password) => {
+    setIsAppLoading(true);
     const { url, options } = TOKEN_POST({
       username,
       password,
@@ -27,7 +30,7 @@ export const UserContextStorage = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ userData, userLogin }}>
+    <UserContext.Provider value={{ userData, userLogin, isAppLoading }}>
       {children}
     </UserContext.Provider>
   );
