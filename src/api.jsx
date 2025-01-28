@@ -10,3 +10,13 @@ export const TOKEN_POST = (body) => ({
     body: JSON.stringify(body),
   },
 });
+
+export const GET_USER = (token) => ({
+  url: `${API_URL}/api/user`,
+  options: {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  },
+});

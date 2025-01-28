@@ -179,10 +179,16 @@ O valor utilizado para validação é o último valor do estado de `value`. O cu
 
 ---
 
-### LoginForm | Isolando configs/lógica da API
+### LoginForm | Isolando configs/lógica da API | TOKEN_POST
 
 Antes de começar a utilizar outros endpoints da API os dados da API e a lógica das requisições foram isoladas no arquivo `api.jsx`, assim é possível manter os endpoints e as requisições em um só lugar.
 
 O componente `LoginForm` foi modificado para o utilizar o novo jeito de realizar uma requisição.
+
+---
+
+### LoginForm | Obtendo usuário | API | GET_USER
+
+No arquivo `api.jsx` foi adicionado a config de um novo endpoint para obter o usuário. No componente `LoginForm` o endpoint é chamado através do novo método `getUser` logo após o envio do formulário.
 
 ---
