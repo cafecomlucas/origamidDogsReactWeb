@@ -176,3 +176,13 @@ No evento `onBlur`: O valor utilizado para validação é o último valor do est
 #### No evento de callback `onSubmit`
 
 O valor utilizado para validação é o último valor do estado de `value`. O custom Hook `useForm` exporta o método com o nome `validate`, que chama o método interno e passa o `value` interno como parâmetro (assim não é necessário passar o value ao chamar o método externamente). No componente `LoginForm` a validação é feita através da chamada do método `validate` (sem precisar passar parâmetros) no disparo evento de callback `onSubmit.
+
+---
+
+### LoginForm | Isolando configs/lógica da API
+
+Antes de começar a utilizar outros endpoints da API os dados da API e a lógica das requisições foram isoladas no arquivo `api.jsx`, assim é possível manter os endpoints e as requisições em um só lugar.
+
+O componente `LoginForm` foi modificado para o utilizar o novo jeito de realizar uma requisição.
+
+---
