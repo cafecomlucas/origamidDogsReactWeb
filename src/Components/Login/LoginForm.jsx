@@ -12,10 +12,9 @@ const LoginForm = () => {
   const handleSubmit = React.useCallback(
     async (e) => {
       e.preventDefault();
-      let statusValidate = true;
-      statusValidate = username.validate();
-      statusValidate = password.validate();
-      if (!statusValidate) return null;
+      let statusValidateFalse = true;
+      statusValidateFalse = !username.validate() || !password.validate();
+      if (statusValidateFalse) return null;
 
       userLogin(username.value, password.value);
     },

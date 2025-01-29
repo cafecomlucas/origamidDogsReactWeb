@@ -233,7 +233,7 @@ No Componente `UserContextStorage` foi criado o novo estado `isAppLoading` que g
 - setado para `true` quando o `userLogin` é chamado
 - setado para `false` na última linha do `getUser`
 
-O estado `isAppLoading` é disponibilizado pra toda a aplicação no retorno do componente `UserContextStorage`.
+O estado `isAppLoading` é disponibilizado pra toda a aplicação no retorno do Componente `UserContextStorage`.
 
 O botão dentro do `LoginForm` usa o estado `isAppLoading` para exibir o botão habilitado ou desabilitado.
 
@@ -247,7 +247,7 @@ No método `userLogin` foi criado um try/catch para setar a mensagem de erro no 
 
 Se cair no erro, o catch seta a mensagem de erro no `appError`. Ao final do catch o estado de `isAppLoading` é setado para false.
 
-O estado `appError` é disponibilizado pra toda a aplicação no retorno do componente `UserContextStorage` para uso externo.
+O estado `appError` é disponibilizado pra toda a aplicação no retorno do Componente `UserContextStorage` para uso externo.
 
 O Componente `LoginForm` usa o estado de `appError` para exibir a mensagem de erro, no caso dela existir.
 
@@ -275,12 +275,20 @@ Para evitar um erro na aplicação após os dados apagados, no Componente `Accou
 
 ### UserContext | API | Autologin ao entrar na aplicação
 
-No componente `UserContext`:
+No Componente `UserContext`:
 
 - o método `userLogin` foi alterado para guardar o token localmente assim que ele for criado.
 - o método `userLogout` foi modificado para apagar o token ao deslogar um usuário.
 - foi criado o novo método `autoLogin` que obtem o token local, caso exista e verificar se o token é válido através de uma nova chamada pra api. Se o token for válido, tenta obter o usuário. Se o token for inválido, faz o logout do usuário.
 
 No arquivo `api` foi configurada a nova rota que faz a validação do token.
+
+---
+
+### Ajustes | UserContext (useCallback) | LoginForm (lógica de validação)
+
+Ajuste feito no Componente `UserContextStorage` para utilização do `React.useCallback` em todos os métodos.
+
+Ajuste feito no Componente `LoginForm` para validar corretamente o formulário no evento de envio.
 
 ---

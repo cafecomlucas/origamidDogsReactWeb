@@ -19,39 +19,43 @@ export const UserContextStorage = ({ children }) => {
     setIsUserLoggedIn(true);
   }, []);
 
-  const userLogin = async (username, password) => {
-    setIsAppLoading(true);
-    try {
-      const { url, options } = TOKEN_POST({
-        username,
-        password,
-      });
-      const response = await fetch(url, options);
-      if (!response.ok) {
-        const { message } = await response.json();
-        throw new Error(message);
+  const userLogin = React.useCallback(
+    async (username, password) => {
+      setIsAppLoading(true);
+      try {
+        setAppError(null);
+        const { url, options } = TOKEN_POST({
+          username,
+          password,
+        });
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          const { message } = await response.json();
+          throw new Error(message);
+        }
+        const { token } = await response.json();
+        console.log('token: ', token);
+        const { localStorage } = window;
+        // save token
+        localStorage.setItem('token', token);
+        getUser(token);
+      } catch (err) {
+        console.error(err.message);
+        setAppError(err.message);
+        setIsAppLoading(false);
       }
-      const { token } = await response.json();
-      console.log('token: ', token);
-      const { localStorage } = window;
-      // save token
-      localStorage.setItem('token', token);
-      getUser(token);
-    } catch (err) {
-      console.error(err.message);
-      setAppError(err.message);
-      setIsAppLoading(false);
-    }
-  };
+    },
+    [getUser],
+  );
 
-  const userLogout = () => {
+  const userLogout = React.useCallback(() => {
     const { localStorage } = window;
     setUserData(null);
     setIsAppLoading(false);
     setAppError(null);
     setIsUserLoggedIn(false);
     localStorage.removeItem('token');
-  };
+  }, []);
 
   const autoLogin = React.useCallback(async () => {
     const { localStorage } = window;
@@ -67,7 +71,7 @@ export const UserContextStorage = ({ children }) => {
         userLogout();
       }
     }
-  }, [getUser]);
+  }, [getUser, userLogout]);
 
   React.useEffect(() => {
     autoLogin();
