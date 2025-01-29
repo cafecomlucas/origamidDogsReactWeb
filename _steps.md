@@ -99,7 +99,7 @@ Também foi definida a estilização específica do `Header` e foram feitos ajus
 No Componente `Login` foram configuradas rotas internas (nested routes) e os arquivos iniciais para os componentes:
 
 - logar/autenticação (`LoginForm`)
-- criação de novo usuário (`LoginNewUser`)
+- criação de novo usuário (`LoginNewAccount`)
 - recuperação da senha do usuário (`LoginRecoveryPassword`)
 - reset da senha do usuário (`LoginResetPassword`)
 
@@ -299,10 +299,10 @@ Foi definido um novo arquivo CSS para o componente `Login`, setando os estilos p
 
 ---
 
-### LoginForm | LoginNewUser | Página de nova conta
+### LoginForm | LoginNewAccount | Página de nova conta
 
 No Componente `LoginForm` foi criado um novo link pra página de nova conta. Também foram definidos novos estilos para exibição do bloco que contém o link. O estilo do botão de login foi reaproveitado no link de nova conta.
 
-No Componente `LoginNewUser` foi criada a estrutura dos campos de cadastro, reaproveitando o componente `Input` e o custom Hook `useForm`.
+No Componente `LoginNewAccount` foi criada a estrutura dos campos de cadastro, reaproveitando o componente `Input` e o custom Hook `useForm`.
 
 ---

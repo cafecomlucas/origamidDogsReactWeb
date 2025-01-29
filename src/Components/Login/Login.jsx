@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import LoginForm from './LoginForm';
-import LoginNewUser from './LoginNewUser';
+import LoginNewAccount from './LoginNewAccount';
 import LoginRecoveryPassword from './LoginRecoveryPassword';
 import LoginResetPassword from './LoginResetPassword';
 import { UserContext } from '../../UserContext';
@@ -16,7 +16,7 @@ const Login = () => {
       <div className={styles.forms}>
         <Routes>
           <Route path="/" element={<LoginForm />} />
-          <Route path="new-account" element={<LoginNewUser />} />
+          <Route path="new-account" element={<LoginNewAccount />} />
           <Route path="recovery-password" element={<LoginRecoveryPassword />} />
           <Route path="reset-password" element={<LoginResetPassword />} />
         </Routes>

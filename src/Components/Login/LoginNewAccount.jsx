@@ -3,7 +3,7 @@ import useForm from '../../Hooks/useForm';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 
-const LoginNewUser = () => {
+const LoginNewAccount = () => {
   const username = useForm();
   const email = useForm();
   const password = useForm();
@@ -31,4 +31,4 @@ const LoginNewUser = () => {
   );
 };
 
-export default LoginNewUser;
+export default LoginNewAccount;
