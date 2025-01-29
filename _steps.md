@@ -295,7 +295,7 @@ Ajuste feito no Componente `LoginForm` para validar corretamente o formulário n
 
 ### Login | Estilização padrão
 
-Foi definido um novo arquivo CSS para o componente `Login`, setando os estilos padrões para toda a área de login.
+Foi definido um novo arquivo CSS para o componente `Login`, setando os estilos padrões (e responsividade) para toda a área de login.
 
 ---
 
@@ -310,5 +310,11 @@ No Componente `LoginNewAccount` foi criada a estrutura dos campos de cadastro, r
 ### Login | LoginForm | Ajuste nos estilos dos títulos/subtítulos
 
 O estilo global dos estilos dos títulos foi ajustado no css do `App`. Também foi ajustado o estilo específico do subtítulo do `LoginForm`. Alguns estilos setados em elementos foram substituídos por estilos setados em classes.
+
+---
+
+### LoginForm | LoginNewAccount | Animação de transição de página
+
+No `App.css` foi criada uma animação de transisção que acontece ao acessar uma página. A animação foi aplicada no Componente `LoginForm` e no Componente `LoginNewAccount` através da classe `animeLeft`.
 
 ---

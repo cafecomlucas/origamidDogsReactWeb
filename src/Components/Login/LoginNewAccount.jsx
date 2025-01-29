@@ -19,7 +19,7 @@ const LoginNewAccount = () => {
   );
 
   return (
-    <section>
+    <section className="animeLeft">
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
