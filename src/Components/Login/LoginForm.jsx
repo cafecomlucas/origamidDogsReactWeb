@@ -3,6 +3,9 @@ import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
 import { UserContext } from '../../UserContext';
+import { Link } from 'react-router-dom';
+import styles from './LoginForm.module.css';
+import stylesBtn from '../Forms/Button.module.css';
 
 const LoginForm = () => {
   const username = useForm();
@@ -23,7 +26,8 @@ const LoginForm = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <h1>Login</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />
         {isAppLoading ? (
@@ -31,6 +35,13 @@ const LoginForm = () => {
         ) : (
           <Button>Entrar</Button>
         )}
+        <div className={styles.newaccount}>
+          <h2>Cadastre-se</h2>
+          <p>Ainda não possui conta? Cadastre-se no site.</p>
+          <Link className={stylesBtn.button} to="/login/new-account">
+            Cadastre-se
+          </Link>
+        </div>
         {appError && <p style={{ marginTop: '2rem' }}>{appError}</p>}
       </form>
     </section>

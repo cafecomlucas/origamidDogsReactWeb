@@ -298,3 +298,11 @@ Ajuste feito no Componente `LoginForm` para validar corretamente o formulário n
 Foi definido um novo arquivo CSS para o componente `Login`, setando os estilos padrões para toda a área de login.
 
 ---
+
+### LoginForm | LoginNewUser | Página de nova conta
+
+No Componente `LoginForm` foi criado um novo link pra página de nova conta. Também foram definidos novos estilos para exibição do bloco que contém o link. O estilo do botão de login foi reaproveitado no link de nova conta.
+
+No Componente `LoginNewUser` foi criada a estrutura dos campos de cadastro, reaproveitando o componente `Input` e o custom Hook `useForm`.
+
+---

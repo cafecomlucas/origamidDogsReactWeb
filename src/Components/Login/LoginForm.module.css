@@ -1,0 +1,20 @@
+.form {
+  margin-bottom: 2rem;
+}
+
+.newaccount {
+  margin: 4rem 0;
+}
+
+.newaccount h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.newaccount p {
+  margin-bottom: 1rem;
+}
+
+.newaccount a {
+  display: inline-block;
+}
