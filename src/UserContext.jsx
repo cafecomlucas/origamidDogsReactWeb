@@ -42,9 +42,23 @@ export const UserContextStorage = ({ children }) => {
     }
   };
 
+  const userLogout = () => {
+    setUserData(null);
+    setIsAppLoading(false);
+    setAppError(null);
+    setIsUserLoggedIn(false);
+  };
+
   return (
     <UserContext.Provider
-      value={{ userData, userLogin, isAppLoading, appError, isUserLoggedIn }}
+      value={{
+        userData,
+        userLogin,
+        isAppLoading,
+        appError,
+        isUserLoggedIn,
+        userLogout,
+      }}
     >
       {children}
     </UserContext.Provider>

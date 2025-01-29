@@ -262,3 +262,13 @@ No Componente `UserContextStorage` foi criado o novo estado `isUserLoggedIn` que
 No Componente `Login` é verificado se o usuário está logado. Se estiver o usuário é redirecionado automaticamente para a página da conta dele (rota `/account`).
 
 ---
+
+### UserContext | Header | Account | Deslogando o usuário
+
+No Componente `UserContextStorage` foi criado o novo método `userLogout` que reseta todos os dados globais da aplicação. O método `userLogout` foi disponibilizado globalmente.
+
+No Componente `Header` foi criado um botão de `sair` que ativa o método `userLogout` e reseta todos os dados.
+
+Para evitar um erro na aplicação após os dados apagados, no Componente `Account` (rota `/account`) foi adicionada uma condição que verifica se o usuário ainda está logado (checando o estado global `isUserLoggedIn`). Se o usuário estiver deslogado ele é redirecionado para a página de Login.
+
+---
