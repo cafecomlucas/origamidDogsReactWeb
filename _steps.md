@@ -252,3 +252,13 @@ O estado `appError` é disponibilizado pra toda a aplicação no retorno do comp
 O Componente `LoginForm` usa o estado de `appError` para exibir a mensagem de erro, no caso dela existir.
 
 Dessa forma, se existir algum erro ao executar o fetch para obter o token dentro do método `userLogin`, o processo é interrompido antes da chamada do método `getUser` (então a requisição para obter os dados do usuário é evitada).
+
+---
+
+### UserContext | Login | Definindo se o usuário está logado
+
+No Componente `UserContextStorage` foi criado o novo estado `isUserLoggedIn` que guarda o status de usuário logado.
+
+No Componente `Login` é verificado se o usuário está logado. Se estiver o usuário é redirecionado automaticamente para a página da conta dele (rota `/account`).
+
+---

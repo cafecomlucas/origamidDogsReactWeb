@@ -7,14 +7,16 @@ export const UserContextStorage = ({ children }) => {
   const [userData, setUserData] = React.useState(null);
   const [isAppLoading, setIsAppLoading] = React.useState(false);
   const [appError, setAppError] = React.useState(null);
+  const [isUserLoggedIn, setIsUserLoggedIn] = React.useState(false);
 
   const getUser = React.useCallback(async (token) => {
     const { url, options } = GET_USER(token);
     const response = await fetch(url, options);
     const userRes = await response.json();
-    setUserData(userRes);
     console.log('userData: ', userRes);
+    setUserData(userRes);
     setIsAppLoading(false);
+    setIsUserLoggedIn(true);
     // ... save user ...
   }, []);
 
@@ -31,8 +33,8 @@ export const UserContextStorage = ({ children }) => {
         throw new Error(message);
       }
       const { token } = await response.json();
-      getUser(token);
       console.log('token: ', token);
+      getUser(token);
     } catch (err) {
       console.error(err.message);
       setAppError(err.message);
@@ -42,7 +44,7 @@ export const UserContextStorage = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ userData, userLogin, isAppLoading, appError }}
+      value={{ userData, userLogin, isAppLoading, appError, isUserLoggedIn }}
     >
       {children}
     </UserContext.Provider>
