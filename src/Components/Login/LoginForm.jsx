@@ -16,7 +16,7 @@ const LoginForm = () => {
     async (e) => {
       e.preventDefault();
       let statusValidateFalse = true;
-      statusValidateFalse = !username.validate() || !password.validate();
+      statusValidateFalse = !username.validate() | !password.validate();
       if (statusValidateFalse) return null;
 
       userLogin(username.value, password.value);

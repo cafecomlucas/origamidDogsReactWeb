@@ -30,3 +30,14 @@ export const TOKEN_VALIDATE_POST = (token) => ({
     },
   },
 });
+
+export const USER_POST = (body) => ({
+  url: `${API_URL}/api/user`,
+  options: {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  },
+});

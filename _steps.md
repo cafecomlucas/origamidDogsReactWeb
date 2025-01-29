@@ -326,3 +326,11 @@ No custom Hook `useForm` foi criada uma nova regra pra validação de e-mail. Co
 No Componente `useForm` o novo parâmetro foi informado para o campo de e-mail para fazer essa validação.
 
 ---
+
+### LoginNewAccount | API | Criando nova conta
+
+No arquivo `api.jsx` foi adicionada uma nova rota pra criação de uma nova conta.
+
+No Componente `LoginNewAccount` a validação foi incluída no `handleSubmit` e a nova rota é chamada passando os dados do formulário. Se o cadastro for bem sucedido o usuário é logado automaticamente. Também foram criados os estados de `loading` e `error` (que ainda vão ser otimizados).
+
+---
