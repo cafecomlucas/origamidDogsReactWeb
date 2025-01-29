@@ -1,5 +1,5 @@
 import React from 'react';
-import { GET_USER, TOKEN_POST } from './api';
+import { GET_USER, TOKEN_POST, TOKEN_VALIDATE_POST } from './api';
 
 export const UserContext = React.createContext();
 
@@ -17,7 +17,6 @@ export const UserContextStorage = ({ children }) => {
     setUserData(userRes);
     setIsAppLoading(false);
     setIsUserLoggedIn(true);
-    // ... save user ...
   }, []);
 
   const userLogin = async (username, password) => {
@@ -34,6 +33,9 @@ export const UserContextStorage = ({ children }) => {
       }
       const { token } = await response.json();
       console.log('token: ', token);
+      const { localStorage } = window;
+      // save token
+      localStorage.setItem('token', token);
       getUser(token);
     } catch (err) {
       console.error(err.message);
@@ -43,11 +45,33 @@ export const UserContextStorage = ({ children }) => {
   };
 
   const userLogout = () => {
+    const { localStorage } = window;
     setUserData(null);
     setIsAppLoading(false);
     setAppError(null);
     setIsUserLoggedIn(false);
+    localStorage.removeItem('token');
   };
+
+  const autoLogin = React.useCallback(async () => {
+    const { localStorage } = window;
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAppLoading(true);
+      try {
+        const { url, options } = TOKEN_VALIDATE_POST(token);
+        const validTokenRes = await fetch(url, options);
+        if (!validTokenRes.ok) throw new Error('Token inválido');
+        await getUser(token);
+      } catch {
+        userLogout();
+      }
+    }
+  }, [getUser]);
+
+  React.useEffect(() => {
+    autoLogin();
+  }, [autoLogin]);
 
   return (
     <UserContext.Provider

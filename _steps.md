@@ -272,3 +272,15 @@ No Componente `Header` foi criado um botão de `sair` que ativa o método `userL
 Para evitar um erro na aplicação após os dados apagados, no Componente `Account` (rota `/account`) foi adicionada uma condição que verifica se o usuário ainda está logado (checando o estado global `isUserLoggedIn`). Se o usuário estiver deslogado ele é redirecionado para a página de Login.
 
 ---
+
+### UserContext | API | Autologin ao entrar na aplicação
+
+No componente `UserContext`:
+
+- o método `userLogin` foi alterado para guardar o token localmente assim que ele for criado.
+- o método `userLogout` foi modificado para apagar o token ao deslogar um usuário.
+- foi criado o novo método `autoLogin` que obtem o token local, caso exista e verificar se o token é válido através de uma nova chamada pra api. Se o token for válido, tenta obter o usuário. Se o token for inválido, faz o logout do usuário.
+
+No arquivo `api` foi configurada a nova rota que faz a validação do token.
+
+---
