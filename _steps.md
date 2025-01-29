@@ -292,3 +292,9 @@ Ajuste feito no Componente `UserContextStorage` para utilização do `React.useC
 Ajuste feito no Componente `LoginForm` para validar corretamente o formulário no evento de envio.
 
 ---
+
+### Login | Estilização padrão
+
+Foi definido um novo arquivo CSS para o componente `Login`, setando os estilos padrões para toda a área de login.
+
+---
