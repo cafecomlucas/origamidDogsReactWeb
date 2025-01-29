@@ -5,7 +5,7 @@ import Button from '../Forms/Button';
 
 const LoginNewAccount = () => {
   const username = useForm();
-  const email = useForm();
+  const email = useForm('email');
   const password = useForm();
 
   const handleSubmit = React.useCallback(

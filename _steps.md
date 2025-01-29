@@ -318,3 +318,11 @@ O estilo global dos estilos dos títulos foi ajustado no css do `App`. Também f
 No `App.css` foi criada uma animação de transisção que acontece ao acessar uma página. A animação foi aplicada no Componente `LoginForm` e no Componente `LoginNewAccount` através da classe `animeLeft`.
 
 ---
+
+### LoginNewAccount | useForm | Validando o e-mail no cadasro de conta
+
+No custom Hook `useForm` foi criada uma nova regra pra validação de e-mail. Com essa modificação caso o parâmetro types esteja definido com o tipo `email`, um regex é utilizado para fazer a validação e retornar uma mensagem de erro se o e-mail não for válido.
+
+No Componente `useForm` o novo parâmetro foi informado para o campo de e-mail para fazer essa validação.
+
+---
