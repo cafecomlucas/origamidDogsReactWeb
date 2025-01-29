@@ -20,7 +20,7 @@ const LoginNewAccount = () => {
 
   return (
     <section>
-      <h1>Cadastre-se</h1>
+      <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="E-mail" type="email" name="email" {...email} />

@@ -306,3 +306,9 @@ No Componente `LoginForm` foi criado um novo link pra página de nova conta. Tam
 No Componente `LoginNewAccount` foi criada a estrutura dos campos de cadastro, reaproveitando o componente `Input` e o custom Hook `useForm`.
 
 ---
+
+### Login | LoginForm | Ajuste nos estilos dos títulos/subtítulos
+
+O estilo global dos estilos dos títulos foi ajustado no css do `App`. Também foi ajustado o estilo específico do subtítulo do `LoginForm`. Alguns estilos setados em elementos foram substituídos por estilos setados em classes.
+
+---

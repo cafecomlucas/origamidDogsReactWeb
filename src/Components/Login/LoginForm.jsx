@@ -26,7 +26,7 @@ const LoginForm = () => {
 
   return (
     <section>
-      <h1>Login</h1>
+      <h1 className="title">Login</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />
@@ -36,9 +36,14 @@ const LoginForm = () => {
           <Button>Entrar</Button>
         )}
         <div className={styles.newaccount}>
-          <h2>Cadastre-se</h2>
-          <p>Ainda não possui conta? Cadastre-se no site.</p>
-          <Link className={stylesBtn.button} to="/login/new-account">
+          <h2 className={styles.subtitle}>Cadastre-se</h2>
+          <p className={styles.description}>
+            Ainda não possui conta? Cadastre-se no site.
+          </p>
+          <Link
+            className={`${stylesBtn.button} ${styles.linkbutton}`}
+            to="/login/new-account"
+          >
             Cadastre-se
           </Link>
         </div>
