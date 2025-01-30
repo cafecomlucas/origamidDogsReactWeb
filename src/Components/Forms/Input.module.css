@@ -28,7 +28,7 @@
   box-shadow: 0 0 0 3px #fea;
 }
 
-.error {
+.validationError {
   color: #f31;
   font-size: .875rem;
   margin-top: .25rem;

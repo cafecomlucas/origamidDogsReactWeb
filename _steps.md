@@ -334,3 +334,11 @@ No arquivo `api.jsx` foi adicionada uma nova rota pra criação de uma nova cont
 No Componente `LoginNewAccount` a validação foi incluída no `handleSubmit` e a nova rota é chamada passando os dados do formulário. Se o cadastro for bem sucedido o usuário é logado automaticamente. Também foram criados os estados de `loading` e `error` (que ainda vão ser otimizados).
 
 ---
+
+### ErrorBox | Componente para exibir erros de requisição
+
+Para exibir erros de requisição, o Componente `ErrorBox` foi criado junto com uma estilização global no `App.css`.
+
+As áreas onde exibem esses erros foram modificadas nos componentes `LoginForm` e `LoginNewAccount`.
+
+---

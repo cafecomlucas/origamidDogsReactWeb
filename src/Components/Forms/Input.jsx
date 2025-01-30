@@ -15,7 +15,7 @@ const Input = ({ label, name, type, value, error, onChange, onBlur }) => {
         onChange={onChange}
         onBlur={onBlur}
       />
-      {error && <p className={styles.error}>{error}</p>}
+      {error && <p className={styles.validationError}>{error}</p>}
     </div>
   );
 };

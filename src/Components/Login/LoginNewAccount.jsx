@@ -4,6 +4,7 @@ import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import { USER_POST } from '../../api';
 import { UserContext } from '../../UserContext';
+import ErrorBox from '../../Helpers/ErrorBox';
 
 const LoginNewAccount = () => {
   const username = useForm();
@@ -56,7 +57,7 @@ const LoginNewAccount = () => {
         ) : (
           <Button>Cadastrar</Button>
         )}
-        {error && <p style={{ marginTop: '2rem' }}>{error}</p>}
+        {error && <ErrorBox message={error} />}
       </form>
     </section>
   );

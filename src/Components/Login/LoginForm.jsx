@@ -6,6 +6,7 @@ import { UserContext } from '../../UserContext';
 import { Link } from 'react-router-dom';
 import styles from './LoginForm.module.css';
 import stylesBtn from '../Forms/Button.module.css';
+import ErrorBox from '../../Helpers/ErrorBox';
 
 const LoginForm = () => {
   const username = useForm();
@@ -35,6 +36,7 @@ const LoginForm = () => {
         ) : (
           <Button>Entrar</Button>
         )}
+        {appError && <ErrorBox message={appError} />}
         <div className={styles.newaccount}>
           <h2 className={styles.subtitle}>Cadastre-se</h2>
           <p className={styles.description}>
@@ -47,7 +49,6 @@ const LoginForm = () => {
             Cadastre-se
           </Link>
         </div>
-        {appError && <p style={{ marginTop: '2rem' }}>{appError}</p>}
       </form>
     </section>
   );
