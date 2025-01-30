@@ -6,7 +6,7 @@ export const UserContext = React.createContext();
 
 export const UserContextStorage = ({ children }) => {
   const [userData, setUserData] = React.useState(null);
-  const [isUserLoggedIn, setIsUserLoggedIn] = React.useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = React.useState(null);
   const { rqLoading, rqError, request } = useFetch();
 
   const getUser = React.useCallback(

@@ -1,16 +1,20 @@
 import React from 'react';
-import styles from './Account.module.css';
 import { UserContext } from '../../UserContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import AccountPhotosFeed from './AccountPhotosFeed';
+import AccountStats from './AccountStats';
+import AccountNewPhoto from './AccountNewPhoto';
 
 const Account = () => {
-  const { userData, isUserLoggedIn } = React.useContext(UserContext);
+  const { isUserLoggedIn } = React.useContext(UserContext);
 
-  if (!isUserLoggedIn) return <Navigate to="/login" />;
+  if (isUserLoggedIn === false) return <Navigate to="/login" />;
   return (
-    <section className={styles.account}>
-      Bem vindo <strong>{userData.username}</strong>
-    </section>
+    <Routes>
+      <Route path="/" element={<AccountPhotosFeed />} />
+      <Route path="new-photo" element={<AccountNewPhoto />} />
+      <Route path="stats" element={<AccountStats />} />
+    </Routes>
   );
 };
 

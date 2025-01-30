@@ -394,3 +394,21 @@ Para corrigir isso foi necessário importar o estado o loading do `UserContextSt
 Foi criado o Componente utilitário `AppWrapper` que incluí a classe `isAppLoading` em uma div que engloba a aplicação inteira. Assim, sempre que o estado `isAppLoading` é aplicada uma estilização que anima a opacidade, indicando o carregamento de autenticação.
 
 ---
+
+### Account | Estrutura inicial | Componentes das páginas | bugfix nas rotas
+
+Foram criados Componentes e configuradas as rotas para cada tela da conta do usuário:
+
+- `/account` que carrega o Feed de fotos (Componente `AccountPhotosFeed`)
+- `/account/new-photo` que adiciona uma foto (Componente `AccountNewPhoto`)
+- `/account/stats` que carrega as estatísticas (Componente `AccountStats`)
+
+#### bugfix nas rotas:
+
+Também foi necessário fazer um ajuste na lógica de verificação do usuario logado pois quando qualquer tela era acessada pela primeira vez, mesmo estando logado, ainda era feito o redirecionamento pra `/login`, para depois voltar para `/account`. Também ocorria esse problema ao acessar outra rota dentro de `/account` como `/account/new-photo`.
+
+O estado que verifica se o usuário está logado (`isUserLoggedIn`) precisou ser alterado para ter o valor inicial `null`, que é quando qualquer tela é acessada pela primeira vez (ou quando é feito um refresh). No Componente `Account` é verificado especificamente se o `isUserLoggedIn` é `false` (quando é `false` é porque a aplicação já iniciou).
+
+Se o estado `isUserLoggedIn` for `null` o Componente só renderiza a rota que foi acessada (sem nenhum dado carregado) até a conclusão automática do `autoLogin`.
+
+---
