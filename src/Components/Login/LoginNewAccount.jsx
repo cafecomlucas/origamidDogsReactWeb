@@ -11,7 +11,7 @@ const LoginNewAccount = () => {
   const username = useForm();
   const email = useForm('email');
   const password = useForm();
-  const { userLogin } = React.useContext(UserContext);
+  const { userLogin, isAppLoading } = React.useContext(UserContext);
   const { request, rqError, rqLoading } = useFetch();
 
   const handleSubmit = React.useCallback(
@@ -41,7 +41,7 @@ const LoginNewAccount = () => {
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="E-mail" type="email" name="email" {...email} />
         <Input label="Senha" type="password" name="password" {...password} />
-        {rqLoading ? (
+        {rqLoading || isAppLoading ? (
           <Button disabled>Cadastrando...</Button>
         ) : (
           <Button>Cadastrar</Button>

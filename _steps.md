@@ -376,3 +376,15 @@ Ao final do componente `UserContextStorage` os estados de loading e error ainda 
 No Componente `UserContextStorage` o método `autoLogin` foi modificado para utilizar o custom Hook `useFetch`. O try/catch foi removido.
 
 ---
+
+### Bugfix | LoginNewAccount | Botão saindo do 'Cadastrando...' antes do tempo
+
+No componente `LoginNewAccount` ocorre 2 requests, um após o outro, o primeiro request tenta cadastrar o usuário e se o usuário for cadastrado com sucesso ocorre o segundo request. No segundo request é feito o login do usuário através do método `userLogin`.
+
+Ocorre que como o 1º request está no nível do próprio componente `LoginNewAccount` e o 2º request ocorre internamente dentro do componente `UserContextStorage`, existem 2 loadings diferentes (um pro cadastro e outro pra autenticação no app).
+
+Como só o loading do 1º request estava sendo verificado antes de exibir o botão, o botão "Cadastrar" acendia de novo logo após a conclusão da primeira request (antes do tempo).
+
+Para corrigir isso foi necessário importar o estado o loading do `UserContextStorage` (`isAppLoading`) e adicionar a condição de exibição do botão "Cadastrando...".
+
+---
