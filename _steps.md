@@ -355,8 +355,18 @@ Com esse novo hook também é possível reutilizar a mesma lógica sem repetiç�
 
 ---
 
-### Refactory | UserContext | Aplicando useFetch no `getUser`
+### Refactory | UserContext | Aplicando useFetch no getUser
 
 No componente `UserContextStorage` o método `getUser` foi modificado para utilizar o custom Hook `useFetch`. Nesse método ainda não existia um try/catch e nem precisou pois o custom Hook `useFetch` já possui essa lógica internamente.
+
+---
+
+### Refactory | UserContext | Aplicando useFetch no userLogin
+
+No Componente `UserContextStorage` o método `userLogin` foi modificado para utilizar o custom Hook `useFetch`. O try/catch foi remotido.
+
+Os estados `isAppLoading` e `appError` também foram removidos por não serem mais necessários, já que agora o `useFetch` já possui esses dados internamente e disponibiliza no seu retorno.
+
+Ao final do componente `UserContextStorage` os estados de loading e error ainda são retornados, mas agora utilizando os dados internos no `useFetch`.
 
 ---

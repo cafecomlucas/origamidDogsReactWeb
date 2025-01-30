@@ -7,9 +7,9 @@ const useFetch = () => {
   const request = React.useCallback(async (url, options) => {
     let response;
     let resJson;
+    setRqLoading(true);
     try {
       setRqError(null);
-      setRqLoading(true);
       response = await fetch(url, options);
       if (!response.ok) {
         const { message } = await response.json();

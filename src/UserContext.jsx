@@ -6,54 +6,44 @@ export const UserContext = React.createContext();
 
 export const UserContextStorage = ({ children }) => {
   const [userData, setUserData] = React.useState(null);
-  const [isAppLoading, setIsAppLoading] = React.useState(false);
-  const [appError, setAppError] = React.useState(null);
   const [isUserLoggedIn, setIsUserLoggedIn] = React.useState(false);
-  const { rqLoading, request } = useFetch();
+  const { rqLoading, rqError, request } = useFetch();
 
-  const getUser = React.useCallback(async (token) => {
-    const { url, options } = GET_USER(token);
-    const { resJson } = await request(url, options);
-    console.log('userData: ', resJson);
-    setUserData(resJson);
-    setIsAppLoading(rqLoading);
-    setIsUserLoggedIn(true);
-  }, []);
+  const getUser = React.useCallback(
+    async (token) => {
+      const { url, options } = GET_USER(token);
+      const { response, resJson } = await request(url, options);
+      if (response.ok) {
+        console.log('userData: ', resJson);
+        setUserData(resJson);
+        setIsUserLoggedIn(true);
+      }
+    },
+    [request],
+  );
 
   const userLogin = React.useCallback(
     async (username, password) => {
-      setIsAppLoading(true);
-      try {
-        setAppError(null);
-        const { url, options } = TOKEN_POST({
-          username,
-          password,
-        });
-        const response = await fetch(url, options);
-        if (!response.ok) {
-          const { message } = await response.json();
-          throw new Error(message);
-        }
-        const { token } = await response.json();
+      const { url, options } = TOKEN_POST({
+        username,
+        password,
+      });
+      const { response, resJson } = await request(url, options);
+      if (response.ok) {
+        const { token } = resJson;
         console.log('token: ', token);
         const { localStorage } = window;
         // save token
         localStorage.setItem('token', token);
-        getUser(token);
-      } catch (err) {
-        console.error(err.message);
-        setAppError(err.message);
-        setIsAppLoading(false);
+        await getUser(token);
       }
     },
-    [getUser],
+    [request, getUser],
   );
 
   const userLogout = React.useCallback(() => {
     const { localStorage } = window;
     setUserData(null);
-    setIsAppLoading(false);
-    setAppError(null);
     setIsUserLoggedIn(false);
     localStorage.removeItem('token');
   }, []);
@@ -62,7 +52,6 @@ export const UserContextStorage = ({ children }) => {
     const { localStorage } = window;
     const token = localStorage.getItem('token');
     if (token) {
-      setIsAppLoading(true);
       try {
         const { url, options } = TOKEN_VALIDATE_POST(token);
         const validTokenRes = await fetch(url, options);
@@ -83,8 +72,8 @@ export const UserContextStorage = ({ children }) => {
       value={{
         userData,
         userLogin,
-        isAppLoading,
-        appError,
+        isAppLoading: rqLoading,
+        appError: rqError,
         isUserLoggedIn,
         userLogout,
       }}
