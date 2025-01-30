@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AccountPhotosFeed from './AccountPhotosFeed';
 import AccountStats from './AccountStats';
 import AccountNewPhoto from './AccountNewPhoto';
+import AccountScreen from './AccountScreen';
 
 const Account = () => {
   const { isUserLoggedIn } = React.useContext(UserContext);
@@ -11,9 +12,31 @@ const Account = () => {
   if (isUserLoggedIn === false) return <Navigate to="/login" />;
   return (
     <Routes>
-      <Route path="/" element={<AccountPhotosFeed />} />
-      <Route path="new-photo" element={<AccountNewPhoto />} />
-      <Route path="stats" element={<AccountStats />} />
+      <Route
+        path="/"
+        element={
+          <AccountScreen title="Feed">
+            <AccountPhotosFeed />
+          </AccountScreen>
+        }
+      />
+      <Route
+        path="/new-photo"
+        element={
+          <AccountScreen title="New Photo">
+            <AccountNewPhoto />
+          </AccountScreen>
+        }
+      />
+      <Route
+        path="/stats"
+        element={
+          <AccountScreen title="Stats">
+            <AccountStats />
+          </AccountScreen>
+        }
+      />
+      } />
     </Routes>
   );
 };

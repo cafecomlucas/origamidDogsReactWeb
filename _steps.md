@@ -412,3 +412,11 @@ O estado que verifica se o usuário está logado (`isUserLoggedIn`) precisou ser
 Se o estado `isUserLoggedIn` for `null` o Componente só renderiza a rota que foi acessada (sem nenhum dado carregado) até a conclusão automática do `autoLogin`.
 
 ---
+
+### Account | Estrutura inicial | Componentizando o header (título + nav)
+
+O cabeçalho das telas da conta do usuário seguem um padrão de título + navegação, por isso foi criado o novo Componente `AccountScreen` para isolar a parte padrão e deixar apenas o "miolo" que vai ser alterado para o corpo de cada tela.
+
+Os Componentes de cada tela (`feed`, `new-photo`, `stats`) foram ajustados e ficaram bem enxutos, apenas com o conteúdo principal.
+
+---
