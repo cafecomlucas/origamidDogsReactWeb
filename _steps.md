@@ -354,3 +354,9 @@ Além disso, também foi possível mover os estados de `loading` e `error`, que 
 Com esse novo hook também é possível reutilizar a mesma lógica sem repetição de código em requisições que forem criadas no futuro.
 
 ---
+
+### Refactory | UserContext | Aplicando useFetch no `getUser`
+
+No componente `UserContextStorage` o método `getUser` foi modificado para utilizar o custom Hook `useFetch`. Nesse método ainda não existia um try/catch e nem precisou pois o custom Hook `useFetch` já possui essa lógica internamente.
+
+---

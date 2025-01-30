@@ -1,5 +1,6 @@
 import React from 'react';
 import { GET_USER, TOKEN_POST, TOKEN_VALIDATE_POST } from './api';
+import useFetch from './Hooks/useFetch';
 
 export const UserContext = React.createContext();
 
@@ -8,14 +9,14 @@ export const UserContextStorage = ({ children }) => {
   const [isAppLoading, setIsAppLoading] = React.useState(false);
   const [appError, setAppError] = React.useState(null);
   const [isUserLoggedIn, setIsUserLoggedIn] = React.useState(false);
+  const { rqLoading, request } = useFetch();
 
   const getUser = React.useCallback(async (token) => {
     const { url, options } = GET_USER(token);
-    const response = await fetch(url, options);
-    const userRes = await response.json();
-    console.log('userData: ', userRes);
-    setUserData(userRes);
-    setIsAppLoading(false);
+    const { resJson } = await request(url, options);
+    console.log('userData: ', resJson);
+    setUserData(resJson);
+    setIsAppLoading(rqLoading);
     setIsUserLoggedIn(true);
   }, []);
 
