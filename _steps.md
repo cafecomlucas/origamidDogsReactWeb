@@ -363,10 +363,16 @@ No componente `UserContextStorage` o método `getUser` foi modificado para utili
 
 ### Refactory | UserContext | Aplicando useFetch no userLogin
 
-No Componente `UserContextStorage` o método `userLogin` foi modificado para utilizar o custom Hook `useFetch`. O try/catch foi remotido.
+No Componente `UserContextStorage` o método `userLogin` foi modificado para utilizar o custom Hook `useFetch`. O try/catch foi removido.
 
 Os estados `isAppLoading` e `appError` também foram removidos por não serem mais necessários, já que agora o `useFetch` já possui esses dados internamente e disponibiliza no seu retorno.
 
 Ao final do componente `UserContextStorage` os estados de loading e error ainda são retornados, mas agora utilizando os dados internos no `useFetch`.
+
+---
+
+### Refactory | UserContext | Aplicando useFetch no autoLogin
+
+No Componente `UserContextStorage` o método `autoLogin` foi modificado para utilizar o custom Hook `useFetch`. O try/catch foi removido.
 
 ---
