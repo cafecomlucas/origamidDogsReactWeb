@@ -5,14 +5,14 @@ import Button from '../Forms/Button';
 import { USER_POST } from '../../api';
 import { UserContext } from '../../UserContext';
 import ErrorBox from '../../Helpers/ErrorBox';
+import useFetch from '../../Hooks/useFetch';
 
 const LoginNewAccount = () => {
   const username = useForm();
   const email = useForm('email');
   const password = useForm();
   const { userLogin } = React.useContext(UserContext);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
+  const { request, rqError, rqLoading } = useFetch();
 
   const handleSubmit = React.useCallback(
     async (e) => {
@@ -21,28 +21,17 @@ const LoginNewAccount = () => {
       statusValidateFalse =
         !username.validate() | !email.validate() | !password.validate();
       if (statusValidateFalse) return null;
-      setIsLoading(true);
-      try {
-        setError(null);
-        const { url, options } = USER_POST({
-          username: username.value,
-          email: email.value,
-          password: password.value,
-        });
-        const resNewAcc = await fetch(url, options);
-        console.log('new account: ', resNewAcc);
-        if (!resNewAcc.ok) {
-          const { message } = await resNewAcc.json();
-          throw new Error(message);
-        }
-        userLogin(username.value, password.value);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
+
+      const { url, options } = USER_POST({
+        username: username.value,
+        email: email.value,
+        password: password.value,
+      });
+      const { response } = await request(url, options);
+      console.log('new account: ', response);
+      if (response.ok) userLogin(username.value, password.value);
     },
-    [username, email, password, userLogin],
+    [username, email, password, request, userLogin],
   );
 
   return (
@@ -52,12 +41,12 @@ const LoginNewAccount = () => {
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="E-mail" type="email" name="email" {...email} />
         <Input label="Senha" type="password" name="password" {...password} />
-        {isLoading ? (
+        {rqLoading ? (
           <Button disabled>Cadastrando...</Button>
         ) : (
           <Button>Cadastrar</Button>
         )}
-        {error && <ErrorBox message={error} />}
+        {rqError && <ErrorBox message={rqError} />}
       </form>
     </section>
   );

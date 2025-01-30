@@ -136,7 +136,7 @@ Para os botões foram criados os os arquivos:
 
 ---
 
-### LoginForm | Custom Hook pro estado dos inputs | Isolando a lógica
+### LoginForm | useForm | Custom Hook pro estado dos inputs | Isolando a lógica
 
 Os campos dos inputs `username` e `password` possuem a mesma lógica para modificar o próprio estado. Na função de callback para o onChange do input, o valor de `target.value` é resgatado e passado para o modificador do estado (`setUsername` ou `setPassword`).
 
@@ -340,5 +340,17 @@ No Componente `LoginNewAccount` a validação foi incluída no `handleSubmit` e 
 Para exibir erros de requisição, o Componente `ErrorBox` foi criado junto com uma estilização global no `App.css`.
 
 As áreas onde exibem esses erros foram modificadas nos componentes `LoginForm` e `LoginNewAccount`.
+
+---
+
+### useFetch | Custom Hook pro fetch | Isolando a lógica e o estado
+
+Foi criado o arquivo `useFetch` para isolar a lógica de cada requisição.
+
+Agora ao invés de criar um try/catch em cada local onde é feito uma requisição, essa parte foi movida pra dentro do `useFetch`. Fazendo isso foi possível remover o try/catch do componente `LoginNewAccount`.
+
+Além disso, também foi possível mover os estados de `loading` e `error`, que agora são atualizados dentro do próprio custom Hook.
+
+Com esse novo hook também é possível reutilizar a mesma lógica sem repetição de código em requisições que forem criadas no futuro.
 
 ---
