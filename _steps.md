@@ -388,3 +388,9 @@ Como só o loading do 1º request estava sendo verificado antes de exibir o bot�
 Para corrigir isso foi necessário importar o estado o loading do `UserContextStorage` (`isAppLoading`) e adicionar a condição de exibição do botão "Cadastrando...".
 
 ---
+
+### AppWrapper | Setando animação na opacidade do app ao autenticar
+
+Foi criado o Componente utilitário `AppWrapper` que incluí a classe `isAppLoading` em uma div que engloba a aplicação inteira. Assim, sempre que o estado `isAppLoading` é aplicada uma estilização que anima a opacidade, indicando o carregamento de autenticação.
+
+---

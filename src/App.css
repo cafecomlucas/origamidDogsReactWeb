@@ -39,6 +39,14 @@ a {
   text-decoration: none;
 }
 
+.appWrapper {
+  transition: .4s opacity ease-in-out;
+}
+
+.isAppLoading {
+  opacity: 0.5;
+}
+
 .animeLeft {
   opacity: 0;
   transform: translateX(-20px);
