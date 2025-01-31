@@ -6,23 +6,25 @@ import IconStats from '../../Assets/icon-stats.svg?react';
 import IconExit from '../../Assets/icon-exit.svg?react';
 import styles from './AccountHeaderNav.module.css';
 import { UserContext } from '../../UserContext';
+import useMedia from '../../Hooks/useMedia';
 
 const AccountHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
+  const mediaMatch = useMedia('(max-width: 50rem)');
 
   return (
-    <nav className={styles.accountHeaderNav}>
+    <nav className={mediaMatch ? styles.accNavMobile : styles.accNav}>
       <NavLink to="/account" end>
-        <IconPhotosFeed />
+        <IconPhotosFeed /> {mediaMatch && ' Minhas Fotos'}
       </NavLink>
       <NavLink to="/account/new-photo">
-        <IconNewPhoto />
+        <IconNewPhoto /> {mediaMatch && ' Adicionar Foto'}
       </NavLink>
       <NavLink to="/account/stats">
-        <IconStats />
+        <IconStats /> {mediaMatch && ' Estatísticas'}
       </NavLink>
       <button onClick={userLogout}>
-        <IconExit />
+        <IconExit /> {mediaMatch && ' Sair'}
       </button>
     </nav>
   );

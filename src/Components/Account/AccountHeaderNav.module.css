@@ -1,11 +1,11 @@
-.accountHeaderNav {
+.accNav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
-.accountHeaderNav a ,
-.accountHeaderNav button {
+.accNav a ,
+.accNav button {
   background: #eee;
   border-radius: .2rem;
   height: 40px;
@@ -19,23 +19,70 @@
 }
 
 
-.accountHeaderNav a:hover,
-.accountHeaderNav a:focus,
-.accountHeaderNav button:hover,
-.accountHeaderNav button:focus {
+.accNav a:hover,
+.accNav a:focus,
+.accNav button:hover,
+.accNav button:focus {
   background: #fff;
   box-shadow: 0 0 0 3px #eee;
   border-color: #333;
 }
 
 
-.accountHeaderNav button:global(.active),
-.accountHeaderNav a:global(.active) {
+.accNav button:global(.active),
+.accNav a:global(.active) {
   background: #fff;
   box-shadow: 0 0 0 3px #fb1;
   border-color: #fb1;
 }
 
-.accountHeaderNav a:global(.active) svg > * {  
+.accNav a:global(.active) svg > * {  
+  fill: #fb1;
+}
+
+.accNavMobile {
+  display: block;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  z-index: 100;
+  padding: 0 1rem;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 0.3rem;
+
+}
+
+.accNavMobile a,
+.accNavMobile button {
+  display: flex;
+  align-items: center;
+  background: none;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #eee;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.accNavMobile:last-child button {
+  border-bottom: none;
+}
+
+
+.accNavMobile svg {
+  margin-right: 0.5rem;
+}
+
+.accNavMobile a:hover,
+.accNavMobile button:hover,
+.accNavMobile button:global(.active),
+.accNavMobile a:global(.active) {
+  color: #fb1;
+}
+
+.accNavMobile a:hover svg > *,
+.accNavMobile button:hover svg > *,
+.accNavMobile a:global(.active) svg > * {
   fill: #fb1;
 }

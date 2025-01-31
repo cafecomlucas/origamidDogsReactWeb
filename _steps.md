@@ -428,3 +428,13 @@ No novo componente `AccountHeaderNav` foi adicionada a estrutura, as imagens e o
 O botão para deslogar foi removido do Header da aplicação e adicionado no Header da conta do usuário.
 
 ---
+
+### Custom Hook useMedia | AccountHeaderNav | Menu alternativo
+
+Foi criado o custom Hook `useMedia` que verifica determinado tamanho de tela via JavaScript e retorna o estado `mediaMatch` que indica se está ou não dentro do tamanho de tela informado na inicialização do deste hook.
+
+Neste custom Hook é atribuida a função `checkMediaMatch` assim que o hook é inicializado (no `useEffect`) e essa atribuição é removida assim que o hook deixa de existir (no retorno do `useEffect`).
+
+No Componente `AccountHeaderNav` foram adicionados textos condicionais para cada item de navegação, onde o texto só é exibido se estiver dentro do tamanho de tela definido no custom Hook `useMedia`. Ainda foi criada uma classe CSS específica que só é aplicada pro tamanho de tela definido.
+
+---
