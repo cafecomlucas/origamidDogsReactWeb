@@ -5,7 +5,7 @@ const AppWrapper = ({ children }) => {
   const { isAppLoading } = React.useContext(UserContext);
 
   return (
-    <div className={`appWrapper ${isAppLoading && 'isAppLoading'}`}>
+    <div className={`appWrapper${isAppLoading ? ' isAppLoading' : ''}`}>
       {children}
     </div>
   );

@@ -15,7 +15,7 @@ const Account = () => {
       <Route
         path="/"
         element={
-          <AccountScreen title="Feed">
+          <AccountScreen title="Minhas Fotos">
             <AccountPhotosFeed />
           </AccountScreen>
         }
@@ -23,7 +23,7 @@ const Account = () => {
       <Route
         path="/new-photo"
         element={
-          <AccountScreen title="New Photo">
+          <AccountScreen title="Adicionar Foto">
             <AccountNewPhoto />
           </AccountScreen>
         }
@@ -31,12 +31,11 @@ const Account = () => {
       <Route
         path="/stats"
         element={
-          <AccountScreen title="Stats">
+          <AccountScreen title="Estatísticas">
             <AccountStats />
           </AccountScreen>
         }
       />
-      } />
     </Routes>
   );
 };

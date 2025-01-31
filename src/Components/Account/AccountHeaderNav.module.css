@@ -1,0 +1,37 @@
+.accountHeaderNav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.accountHeaderNav a {
+  background: #eee;
+  border-radius: .2rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: .2s;
+  cursor: pointer;
+}
+
+
+.accountHeaderNav a:hover,
+.accountHeaderNav a:focus {
+  background: #fff;
+  box-shadow: 0 0 0 3px #eee;
+  border-color: #333;
+}
+
+
+.accountHeaderNav a:global(.active) {
+  background: #fff;
+  box-shadow: 0 0 0 3px #fb1;
+  border-color: #fb1;
+}
+
+.accountHeaderNav a:global(.active) svg > * {  
+  fill: #fb1;
+}

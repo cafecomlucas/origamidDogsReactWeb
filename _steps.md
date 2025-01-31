@@ -420,3 +420,9 @@ O cabeçalho das telas da conta do usuário seguem um padrão de título + naveg
 Os Componentes de cada tela (`feed`, `new-photo`, `stats`) foram ajustados e ficaram bem enxutos, apenas com o conteúdo principal.
 
 ---
+
+### Account | Estrutura inicial | Links de navegação
+
+No novo componente `AccountHeaderNav` foi adicionada a estrutura, as imagens e os estilos dos links do menu interno da conta do usuário.
+
+---
