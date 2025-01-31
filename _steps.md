@@ -425,4 +425,6 @@ Os Componentes de cada tela (`feed`, `new-photo`, `stats`) foram ajustados e fic
 
 No novo componente `AccountHeaderNav` foi adicionada a estrutura, as imagens e os estilos dos links do menu interno da conta do usuário.
 
+O botão para deslogar foi removido do Header da aplicação e adicionado no Header da conta do usuário.
+
 ---

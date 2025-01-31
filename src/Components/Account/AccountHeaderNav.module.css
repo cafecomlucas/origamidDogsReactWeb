@@ -1,10 +1,11 @@
 .accountHeaderNav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
-.accountHeaderNav a {
+.accountHeaderNav a ,
+.accountHeaderNav button {
   background: #eee;
   border-radius: .2rem;
   height: 40px;
@@ -19,13 +20,16 @@
 
 
 .accountHeaderNav a:hover,
-.accountHeaderNav a:focus {
+.accountHeaderNav a:focus,
+.accountHeaderNav button:hover,
+.accountHeaderNav button:focus {
   background: #fff;
   box-shadow: 0 0 0 3px #eee;
   border-color: #333;
 }
 
 
+.accountHeaderNav button:global(.active),
 .accountHeaderNav a:global(.active) {
   background: #fff;
   box-shadow: 0 0 0 3px #fb1;

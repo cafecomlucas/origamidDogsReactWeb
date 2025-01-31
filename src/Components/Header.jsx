@@ -5,7 +5,7 @@ import React from 'react';
 import { UserContext } from '../UserContext';
 
 const Header = () => {
-  const { userData, userLogout } = React.useContext(UserContext);
+  const { userData } = React.useContext(UserContext);
 
   return (
     <header className={styles.header}>
@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
         {userData ? (
           <Link className={styles.login} to="account">
-            {userData.username} | <span onClick={userLogout}>sair</span>
+            {userData.username}
           </Link>
         ) : (
           <Link className={styles.login} to="login">
