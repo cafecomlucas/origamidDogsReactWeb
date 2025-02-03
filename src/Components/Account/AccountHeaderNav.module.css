@@ -1,3 +1,52 @@
+.accBtnToogleNav {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  border-radius: .2rem;
+  transition: .1s;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.accBtnToogleNav:hover {
+  background: #fff; 
+  border-color: #333;
+  box-shadow: 0 0 0 3px #eee;
+}
+
+.accBtnToogleNav::after {
+  display: block;
+  color: #333;
+  content: '';
+  border: 2px solid;
+  width: 1.2rem;
+  height: 2px;
+  box-sizing: border-box;
+  box-shadow: 0 7px 0 currentColor, 0 -7px 0 currentColor;
+  border-radius: .2rem;
+  transition: .2s;
+  background-color: currentColor;
+}
+
+.accBtnToogleNav.tggOn {
+  background: #fff;
+  border-color: #ccc;
+  box-shadow: 0 0 0 3px #ccc;
+}
+
+.accBtnToogleNav.tggOn::after {
+  transform: rotateZ(-90deg);
+  width: 4px;
+  height: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 0 currentColor, 0 -8px 0 currentColor;
+
+}
+
 .accNav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -43,14 +92,23 @@
 .accNavMobile {
   display: block;
   position: absolute;
-  top: 70px;
+  top: 54px;
   right: 0;
   z-index: 100;
   padding: 0 1rem;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   border-radius: 0.3rem;
+  transition: .2s;
+  opacity: 1;
+  animation: .1s showAccNavMob ease-out forwards;
+}
 
+@keyframes showAccNavMob {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
 }
 
 .accNavMobile a,

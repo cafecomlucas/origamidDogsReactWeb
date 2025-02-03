@@ -11,22 +11,41 @@ import useMedia from '../../Hooks/useMedia';
 const AccountHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
   const mediaMatch = useMedia('(max-width: 50rem)');
+  const [menuTggOn, setMenuTggOn] = React.useState(false);
+
+  const handleBtnTgg = React.useCallback(() => {
+    setMenuTggOn((crr) => !crr);
+  }, []);
 
   return (
-    <nav className={mediaMatch ? styles.accNavMobile : styles.accNav}>
-      <NavLink to="/account" end>
-        <IconPhotosFeed /> {mediaMatch && ' Minhas Fotos'}
-      </NavLink>
-      <NavLink to="/account/new-photo">
-        <IconNewPhoto /> {mediaMatch && ' Adicionar Foto'}
-      </NavLink>
-      <NavLink to="/account/stats">
-        <IconStats /> {mediaMatch && ' Estatísticas'}
-      </NavLink>
-      <button onClick={userLogout}>
-        <IconExit /> {mediaMatch && ' Sair'}
-      </button>
-    </nav>
+    <>
+      {mediaMatch && (
+        <button
+          aria-label="Menu"
+          className={`${styles.accBtnToogleNav} ${menuTggOn && styles.tggOn}`}
+          onClick={handleBtnTgg}
+        ></button>
+      )}
+      {(!mediaMatch || (mediaMatch && menuTggOn)) && (
+        <nav
+          onClick={handleBtnTgg}
+          className={mediaMatch ? styles.accNavMobile : styles.accNav}
+        >
+          <NavLink to="/account" end>
+            <IconPhotosFeed /> {mediaMatch && ' Minhas Fotos'}
+          </NavLink>
+          <NavLink to="/account/new-photo">
+            <IconNewPhoto /> {mediaMatch && ' Adicionar Foto'}
+          </NavLink>
+          <NavLink to="/account/stats">
+            <IconStats /> {mediaMatch && ' Estatísticas'}
+          </NavLink>
+          <button onClick={userLogout}>
+            <IconExit /> {mediaMatch && ' Sair'}
+          </button>
+        </nav>
+      )}
+    </>
   );
 };
 

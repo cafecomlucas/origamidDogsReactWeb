@@ -438,3 +438,19 @@ Neste custom Hook é atribuida a função `checkMediaMatch` assim que o hook é 
 No Componente `AccountHeaderNav` foram adicionados textos condicionais para cada item de navegação, onde o texto só é exibido se estiver dentro do tamanho de tela definido no custom Hook `useMedia`. Ainda foi criada uma classe CSS específica que só é aplicada pro tamanho de tela definido.
 
 ---
+
+### AccountHeaderNav | Menu alternativo | Botão que mostra/esconde
+
+No Componente `AccountHeaderNav` foi criado a estrutura e a estilização de um botão de abertura (estilo hambúrguer) para mostrar ou esconder o menu. Esse novo botão só é exibido na página quando o critério do `mediaMatch` for atendido. Foi criado um novo estado chamado `menuTggOn`, que indica se o botão está ativado ou desativado.
+
+Dessa forma:
+
+Se o critério de `mediaMatch` for verdadeiro:
+
+- O botão fica visível, e os links de navegação só ficam visíveis/ocultos ao clique do botão hambúrguer (estado de `menuTggOn`)
+
+Se o critério de `mediaMatch` for falso:
+
+- O botão fica oculto, e os links de navegação ficam sempre visíveis (o estado de `menuTggOn` não é considerado).
+
+---

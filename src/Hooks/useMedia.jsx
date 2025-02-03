@@ -6,7 +6,6 @@ const useMedia = (media) => {
   const checkMediaMatch = React.useCallback(() => {
     const { matches } = window.matchMedia(media);
     setMediaMatch(matches);
-    console.log(matches);
   }, [media]);
 
   React.useEffect(() => {
