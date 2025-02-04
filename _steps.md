@@ -489,3 +489,9 @@ No Componente `AccountNewPhoto` foram feitos os ajustes:
 - Validação do input file incluída no envio do formulário (método `validate`)
 
 ---
+
+### AccountNewPhoto | custom Hook useFile | ajuste na validação
+
+O custom Hook `useFile` foi ajustado para a validação ocorrer não apenas no envio do formulário, mas também na alteração do campo pois o erro continuava em tela mesmo após a seleção do arquivo.
+
+---

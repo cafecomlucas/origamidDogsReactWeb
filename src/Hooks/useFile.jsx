@@ -4,28 +4,32 @@ const useFile = () => {
   const [file, setFile] = React.useState({});
   const [error, setError] = React.useState(null);
 
-  const onChange = React.useCallback(({ target }) => {
-    const targetFile = target.files[0];
-    setFile({
-      raw: targetFile,
-      preview: URL.createObjectURL(targetFile),
-    });
-  }, []);
-
-  const validate = React.useCallback(() => {
-    if (!file.raw) {
+  const validate = React.useCallback((raw) => {
+    if (!raw) {
       setError('Escolha uma imagem');
       return false;
     }
     setError('');
     return true;
-  }, [file]);
+  }, []);
+
+  const onChange = React.useCallback(
+    ({ target }) => {
+      const targetFile = target.files[0];
+      validate(targetFile);
+      setFile({
+        raw: targetFile,
+        preview: URL.createObjectURL(targetFile),
+      });
+    },
+    [validate],
+  );
 
   return {
     value: file,
     error,
     onChange,
-    validate,
+    validate: () => validate(file.raw),
   };
 };
 
