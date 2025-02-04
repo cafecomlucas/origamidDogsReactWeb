@@ -495,3 +495,14 @@ No Componente `AccountNewPhoto` foram feitos os ajustes:
 O custom Hook `useFile` foi ajustado para a validação ocorrer não apenas no envio do formulário, mas também na alteração do campo pois o erro continuava em tela mesmo após a seleção do arquivo.
 
 ---
+
+### AccountNewPhoto | Novo Componente InputFile
+
+Foi criado o Componente `InputFile` para isolar a estrutura do envio de arquivos (semelhante ao `Input`, mas com o tipo específico `file`).
+
+Dessa forma:
+
+- O estado que vem do custom Hook `useFile` é passado diretamente para o Componente `InputFile` via desestruturação
+- O Componente `AccountNewPhoto` ficou mais limpo
+
+---

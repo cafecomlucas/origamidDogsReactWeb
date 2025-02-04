@@ -1,4 +1,5 @@
 import Input from '../../Components/Forms/Input';
+import InputFile from '../../Components/Forms/InputFile';
 import Button from '../../Components/Forms/Button';
 import styles from './AccountNewPhoto.module.css';
 import useForm from '../../Hooks/useForm';
@@ -38,14 +39,7 @@ const AccountNewPhoto = () => {
         <Input label="Nome" name="nome" type="text" {...nome} />
         <Input label="Idade" name="idade" type="number" {...idade} />
         <Input label="Peso" name="peso" type="number" {...peso} />
-        <input
-          className={styles.newPhotoFile}
-          type="file"
-          name="img"
-          id="img"
-          onChange={imgFile.onChange}
-        />
-        {imgFile.error && <p>{imgFile.error}</p>}
+        <InputFile name="img" {...imgFile} />
         <Button>Enviar</Button>
       </form>
       {imgFile.value.preview && (
