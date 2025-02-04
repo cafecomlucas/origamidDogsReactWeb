@@ -3,6 +3,7 @@ import React from 'react';
 const useFetch = () => {
   const [rqError, setRqError] = React.useState(null);
   const [rqLoading, setRqLoading] = React.useState(null);
+  const [dataJson, setDataJson] = React.useState(null);
 
   const request = React.useCallback(async (url, options) => {
     let response;
@@ -21,6 +22,7 @@ const useFetch = () => {
     } finally {
       setRqLoading(false);
     }
+    setDataJson(resJson);
     return {
       response,
       resJson,
@@ -31,6 +33,7 @@ const useFetch = () => {
     request,
     rqError,
     rqLoading,
+    dataJson,
   };
 };
 

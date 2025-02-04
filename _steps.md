@@ -525,10 +525,20 @@ Foi adicionado o redirecionamento pra página do feed (`/account`) se a criaçã
 
 ---
 
-### Home | PhotosFeed | API | Obtendo fotos do feed
+### Home | PhotosFeed | Estrutura inicial | API | Obtendo fotos do feed
 
 Foram criados os Componentes `PhotosFeed` e `PhotoFeedItem` para listar as fotos do feed. Sendo que o `PhotosFeed` guarda a estrutura geral e faz a requisição para obtenção da lista e o `PhotoFeedItem` guarda a estrutura de cada item da lista.
 
 No arquivo `api.jsx` foi adicionada a config do novo endpoint que obtem a lista de fotos via método GET (a opção cache: no-store foi definida para que a lista venha sempre atualizada).
+
+---
+
+### PhotosFeed | Refactory no custom Hook useFetch
+
+Problema: No carregamento do componente `PhotosFeed`, depois de fazer a requisição para obter a lista de fotos é necessário ter acesso aos dados da lista assim que a requisição for concluída, mas não é possível guardar a lista de dados diretamente em uma variável, pois não é possível usar o `await` diretamente dentro do hook `React.useEffect` (já que não aceita funções assíncronas).
+
+Então foi feito um ajuste no custom Hook useFetch para disponibilizar os dados da lista através do estado `dataJson`. Os dados são percorridos através do `map` e os atributos são passados (via desestruturação) para o Componente `PhotoFeedItem`.
+
+Com o acesso aos dados `dataJson` de forma reativa, a lista de itens é atualizada assim que os dados de `dataJson` são atualizados no `useFetch` após a conclusão da requisição.
 
 ---

@@ -4,20 +4,21 @@ import useFetch from '../../Hooks/useFetch';
 import PhotoFeedItem from './PhotoFeedItem';
 
 const PhotosFeed = () => {
-  const { request } = useFetch();
+  const { request, dataJson } = useFetch();
 
   React.useEffect(() => {
     const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
-
-    request(url, options).then((response) => {
-      console.log(response);
-    });
+    request(url, options);
   }, [request]);
 
   return (
-    <ul className="animeLeft">
-      <PhotoFeedItem />
-    </ul>
+    dataJson && (
+      <ul className="animeLeft">
+        {dataJson.map((photoItem) => (
+          <PhotoFeedItem key={photoItem.id} {...photoItem} />
+        ))}
+      </ul>
+    )
   );
 };
 
