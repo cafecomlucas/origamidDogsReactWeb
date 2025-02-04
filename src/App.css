@@ -67,6 +67,11 @@ a {
   margin: 0 auto;
 }
 
+.mainContainer {
+  padding-top: 2rem;
+}
+
+
 .title {
   font-family: var(--type-second);
   line-height: 1;

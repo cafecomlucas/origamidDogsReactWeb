@@ -2,6 +2,7 @@ import React from 'react';
 import { PHOTOS_GET } from '../../api';
 import useFetch from '../../Hooks/useFetch';
 import PhotoFeedItem from './PhotoFeedItem';
+import styles from './PhotosFeed.module.css';
 
 const PhotosFeed = () => {
   const { request, dataJson } = useFetch();
@@ -13,7 +14,7 @@ const PhotosFeed = () => {
 
   return (
     dataJson && (
-      <ul className="animeLeft">
+      <ul className={`${styles.photosFeed} animeLeft`}>
         {dataJson.map((photoItem) => (
           <PhotoFeedItem key={photoItem.id} {...photoItem} />
         ))}

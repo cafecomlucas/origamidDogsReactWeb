@@ -542,3 +542,15 @@ Então foi feito um ajuste no custom Hook useFetch para disponibilizar os dados 
 Com o acesso aos dados `dataJson` de forma reativa, a lista de itens é atualizada assim que os dados de `dataJson` são atualizados no `useFetch` após a conclusão da requisição.
 
 ---
+
+### PhotosFeed | PhotosFeedItem | Estrutura e estilização
+
+No Componente `PhotosFeedItem` foi criada a estrutura de cada item, utilizando a tag `img` para mostrar a imagem do cachorrinho e o `span` pra mostrar a quantidade de visualizações.
+
+Para a estilização foi utilizado o grid layout no CSS, com 3 colunas no desktop e 2 colunas no mobile. Mo desktop também foi definido que a segunda imagem ocupa um espaço maior dentro do grid.
+
+Para a estilização de cada li foi utilizado o grid layout no CSS para fazer a tag `img` e a tag `span` ocuparem o mesmo espaço.
+
+Foi definido que a quantidade de visualizações só aparece no `:hover` de cada item.
+
+---

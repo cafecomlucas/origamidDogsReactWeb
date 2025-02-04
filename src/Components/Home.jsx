@@ -2,7 +2,7 @@ import PhotosFeed from './PhotosFeed/PhotosFeed';
 
 const Home = () => {
   return (
-    <section className="container">
+    <section className="container mainContainer">
       <PhotosFeed />
     </section>
   );
