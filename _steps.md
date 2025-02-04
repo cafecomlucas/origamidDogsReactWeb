@@ -524,3 +524,11 @@ Os estados de `useFetch` são utilizados pra mostrar o carregamento (estado `rqL
 Foi adicionado o redirecionamento pra página do feed (`/account`) se a criação da nova foto for bem sucedida.
 
 ---
+
+### Home | PhotosFeed | API | Obtendo fotos do feed
+
+Foram criados os Componentes `PhotosFeed` e `PhotoFeedItem` para listar as fotos do feed. Sendo que o `PhotosFeed` guarda a estrutura geral e faz a requisição para obtenção da lista e o `PhotoFeedItem` guarda a estrutura de cada item da lista.
+
+No arquivo `api.jsx` foi adicionada a config do novo endpoint que obtem a lista de fotos via método GET (a opção cache: no-store foi definida para que a lista venha sempre atualizada).
+
+---

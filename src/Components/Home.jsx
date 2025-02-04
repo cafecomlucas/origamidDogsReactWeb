@@ -1,5 +1,11 @@
+import PhotosFeed from './PhotosFeed/PhotosFeed';
+
 const Home = () => {
-  return <div className="container">Home</div>;
+  return (
+    <section className="container">
+      <PhotosFeed />
+    </section>
+  );
 };
 
 export default Home;
