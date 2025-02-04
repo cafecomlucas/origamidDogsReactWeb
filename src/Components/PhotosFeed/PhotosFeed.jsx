@@ -4,13 +4,13 @@ import useFetch from '../../Hooks/useFetch';
 import PhotoFeedItem from './PhotoFeedItem';
 import styles from './PhotosFeed.module.css';
 
-const PhotosFeed = () => {
+const PhotosFeed = ({ userId = 0 }) => {
   const { request, dataJson } = useFetch();
 
   React.useEffect(() => {
-    const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
+    const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: userId });
     request(url, options);
-  }, [request]);
+  }, [request, userId]);
 
   return (
     dataJson && (

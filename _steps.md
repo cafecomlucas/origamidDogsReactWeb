@@ -554,3 +554,20 @@ Para a estilização de cada li foi utilizado o grid layout no CSS para fazer a 
 Foi definido que a quantidade de visualizações só aparece no `:hover` de cada item.
 
 ---
+
+### PhotosFeed | AccountPhotosFeed | Exibindo o feed na página da conta
+
+O Componente `PhotosFeed` foi reaproveitado na página inicial da conta (`/account`) para exibir a lista de posts do usuário logado.
+
+Foi necessário ajustar o Componente `PhotosFeed` para receber uma prop com o id do usuário, assim apenas os posts do usuário logado são exibidos na página inicial da conta. Se nenhum id for informado, o valor padrão é setado pra 0.
+
+No Componente `AccountPhotosFeed` é obtido o id do usuário via Context API, e esse id é passado como propriedade `userId` pro Componente `PhotosFeed`.
+
+Dessa forma:
+
+- Na página inicial da aplicação (`/`) são exibidos os posts de todos usuários
+- Na página inicial da conta (`/account`) são exibidos apenas os posts do usuário logado
+
+Obs: Foi feito um ajuste no arquivo `api.jsx` para corrigir os parâmetros na URL da requisição.
+
+---
