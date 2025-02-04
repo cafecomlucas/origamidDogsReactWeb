@@ -518,3 +518,9 @@ Após obter as novas configs da api (de `PHOTO_POST`), a requisição é feita a
 Os estados de `useFetch` são utilizados pra mostrar o carregamento (estado `rqLoading`) e pra mostrar erro caso exista (estado `rqError`);
 
 ---
+
+### AccountNewPhoto | Redirecionamento pro feed
+
+Foi adicionado o redirecionamento pra página do feed (`/account`) se a criação da nova foto for bem sucedida.
+
+---

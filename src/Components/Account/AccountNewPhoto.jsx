@@ -8,6 +8,7 @@ import React from 'react';
 import ErrorBox from '../../Helpers/ErrorBox';
 import useFetch from '../../Hooks/useFetch';
 import { PHOTO_POST } from '../../api';
+import { useNavigate } from 'react-router-dom';
 
 const AccountNewPhoto = () => {
   const nome = useForm();
@@ -15,6 +16,7 @@ const AccountNewPhoto = () => {
   const peso = useForm();
   const imgFile = useFile();
   const { request, rqLoading, rqError } = useFetch();
+  const navigate = useNavigate();
 
   const handleSubmit = React.useCallback(
     async (e) => {
@@ -37,9 +39,10 @@ const AccountNewPhoto = () => {
       const token = window.localStorage.getItem('token');
 
       const { url, options } = PHOTO_POST(formData, token);
-      await request(url, options);
+      const { response } = await request(url, options);
+      if (response.ok) navigate('/account');
     },
-    [nome, idade, peso, imgFile, request],
+    [nome, idade, peso, imgFile, request, navigate],
   );
 
   return (
