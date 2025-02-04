@@ -467,3 +467,13 @@ Para o cadastro de uma nova foto, no Componente `AccountNewPhoto` foi criada a e
 - o estilo do container geral
 
 ---
+
+### AccountNewPhoto | Preview da foto escolhida
+
+No Componente `AccountNewPhoto` foi criada uma div para mostrar o preview da foto escolhida.
+
+Utilizando o método global `URL.createObjectURL` é setado um background com a imagem escolhida.
+
+No CSS, para a div ocupar a altura total foi utilizado um macete no pseudo-elemento `after` com `padding-bottom: 100%`.
+
+---

@@ -22,13 +22,16 @@ const AccountNewPhoto = () => {
       console.log(idade.value);
       console.log(peso.value);
       console.log(imgFile.raw);
+      console.log(imgFile.preview);
     },
     [nome, idade, peso, imgFile],
   );
 
   const handleChangeFile = React.useCallback(({ target }) => {
+    const targetFile = target.files[0];
     setImgFile({
-      raw: target.files[0],
+      raw: targetFile,
+      preview: URL.createObjectURL(targetFile),
     });
   }, []);
 
@@ -47,6 +50,12 @@ const AccountNewPhoto = () => {
         />
         <Button>Enviar</Button>
       </form>
+      {imgFile.preview && (
+        <div
+          className={styles.imgPreview}
+          style={{ backgroundImage: `url(${imgFile.preview})` }}
+        ></div>
+      )}
     </section>
   );
 };

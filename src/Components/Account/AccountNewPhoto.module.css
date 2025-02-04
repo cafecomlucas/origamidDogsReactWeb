@@ -7,3 +7,19 @@
 .newPhotoFile {
   margin: 2rem 0;
 }
+
+.imgPreview {
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.imgPreview::after {
+  content: '';
+  display: block;
+  height: 0px;
+  padding-bottom: 100%;
+}
