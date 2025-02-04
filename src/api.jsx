@@ -41,3 +41,14 @@ export const USER_POST = (body) => ({
     body: JSON.stringify(body),
   },
 });
+
+export const PHOTO_POST = (formData, token) => ({
+  url: `${API_URL}/api/photo`,
+  options: {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: formData,
+  },
+});

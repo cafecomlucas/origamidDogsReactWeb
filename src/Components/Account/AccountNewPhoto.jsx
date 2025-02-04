@@ -5,15 +5,19 @@ import styles from './AccountNewPhoto.module.css';
 import useForm from '../../Hooks/useForm';
 import useFile from '../../Hooks/useFile';
 import React from 'react';
+import ErrorBox from '../../Helpers/ErrorBox';
+import useFetch from '../../Hooks/useFetch';
+import { PHOTO_POST } from '../../api';
 
 const AccountNewPhoto = () => {
   const nome = useForm();
   const idade = useForm();
   const peso = useForm();
   const imgFile = useFile();
+  const { request, rqLoading, rqError } = useFetch();
 
   const handleSubmit = React.useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
 
       let isNotValid = true;
@@ -22,15 +26,20 @@ const AccountNewPhoto = () => {
         !idade.validate() |
         !peso.validate() |
         !imgFile.validate();
-      console.log('isNotValid', isNotValid);
+      if (isNotValid) return;
 
-      console.log(nome.value);
-      console.log(idade.value);
-      console.log(peso.value);
-      console.log(imgFile.value.raw);
-      console.log(imgFile.value.preview);
+      const formData = new FormData();
+      formData.append('img', imgFile.value.raw);
+      formData.append('nome', nome.value);
+      formData.append('peso', peso.value);
+      formData.append('idade', idade.value);
+
+      const token = window.localStorage.getItem('token');
+
+      const { url, options } = PHOTO_POST(formData, token);
+      await request(url, options);
     },
-    [nome, idade, peso, imgFile],
+    [nome, idade, peso, imgFile, request],
   );
 
   return (
@@ -40,7 +49,12 @@ const AccountNewPhoto = () => {
         <Input label="Idade" name="idade" type="number" {...idade} />
         <Input label="Peso" name="peso" type="number" {...peso} />
         <InputFile name="img" {...imgFile} />
-        <Button>Enviar</Button>
+        {rqLoading ? (
+          <Button disabled>Enviando...</Button>
+        ) : (
+          <Button>Enviar</Button>
+        )}
+        {rqError && <ErrorBox message={rqError} />}
       </form>
       {imgFile.value.preview && (
         <div

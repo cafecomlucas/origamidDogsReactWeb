@@ -506,3 +506,15 @@ Dessa forma:
 - O Componente `AccountNewPhoto` ficou mais limpo
 
 ---
+
+### AccountNewPhoto | API | Criando nova foto
+
+o arquivo `api.jsx` foi adicionada uma nova config de rota pra criação de um novo cadastro de foto. Como existe uma imagem na requisição, foi necessário utilizar Content-type padrão (com formData) ao invés do `application/json`.
+
+No Componente `AccountNewPhoto` após a validação os itens do formulário são adicionados em um objeto do tipo `FormData` e o `token` é obtido do `localStorage`. Esses dados são utilizados pra fazer a requisição.
+
+Após obter as novas configs da api (de `PHOTO_POST`), a requisição é feita através do custom Hook `useFetch`.
+
+Os estados de `useFetch` são utilizados pra mostrar o carregamento (estado `rqLoading`) e pra mostrar erro caso exista (estado `rqError`);
+
+---
