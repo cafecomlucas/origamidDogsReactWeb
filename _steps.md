@@ -425,7 +425,7 @@ Os Componentes de cada tela (`feed`, `new-photo`, `stats`) foram ajustados e fic
 
 No novo componente `AccountHeaderNav` foi adicionada a estrutura, as imagens e os estilos dos links do menu interno da conta do usuário.
 
-O botão para deslogar foi removido do Header da aplicação e adicionado no Header da conta do usuário.
+O botão para deslogar foi removido do Header da aplicação e adicionado no Header da conta do usuário
 
 ---
 
@@ -452,5 +452,18 @@ Se o critério de `mediaMatch` for verdadeiro:
 Se o critério de `mediaMatch` for falso:
 
 - O botão fica oculto, e os links de navegação ficam sempre visíveis (o estado de `menuTggOn` não é considerado).
+
+---
+
+### AccountNewPhoto | Cadastro de nova foto | Estrutura inicial
+
+Para o cadastro de uma nova foto, no Componente `AccountNewPhoto` foi criada a estrutura inicial com:
+
+- os campos de formulário, utilizando o Componente `Input`
+- o campo de envio de arquivo do tipo `file`
+- o estilo do campo tipo `file`
+- o botão de enviar, utilizando o Componente `Button`
+- a validação inicial utilizando o custom Hook `useForm`
+- o estilo do container geral
 
 ---

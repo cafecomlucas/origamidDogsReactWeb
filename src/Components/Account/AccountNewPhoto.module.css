@@ -1,0 +1,9 @@
+.newPhotoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.newPhotoFile {
+  margin: 2rem 0;
+}
