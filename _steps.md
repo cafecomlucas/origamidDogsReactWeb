@@ -477,3 +477,15 @@ Utilizando o método global `URL.createObjectURL` é setado um background com a 
 No CSS, para a div ocupar a altura total foi utilizado um macete no pseudo-elemento `after` com `padding-bottom: 100%`.
 
 ---
+
+### AccountNewPhoto | custom Hook useFile | validação
+
+Para lidar com os dados do arquivo de upload e com os dados de validação/erro foi criado o custom Hook `useFile` para isolar essa lógica (semelhante ao custom Hook `useForm`, só que para os dados dos campos de upload).
+
+No Componente `AccountNewPhoto` foram feitos os ajustes:
+
+- Utilização dos estados definidos no custom Hook `useFile`
+- Método `handleChangeFile` / `onChange` do input file foi movido pra dentro do custom Hook
+- Validação do input file incluída no envio do formulário (método `validate`)
+
+---
