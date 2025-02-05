@@ -606,3 +606,13 @@ Foi definido o Componente padrão `Loading` para mostrar o status de "carregando
 Esse Componente foi adicionado aos Componentes `PhotosFeed`, `AccountPhotosFeed` e `PhotoContent`.
 
 ---
+
+### PhotoContent | Definindo estrutura e estilos
+
+No Componente `PhotoContent` a estrutura foi modificada para ter os elementos corretos e a ordem de exibição necessária.
+
+Para a estilização foi definido `display: flex` no componente pai (modal), evitando que a expansão do elemento pra janela inteira... por conta disso, no elemento filho (conteúdo), o `margin: auto` funcionou corretamente.
+
+Na estilização do elemento filho (conteúdo), foi definido um estilo com `display: grid` com duas colunas no modo desktop e com uma coluna no modo mobile.
+
+---

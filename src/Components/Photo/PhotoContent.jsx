@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useFetch from '../../Hooks/useFetch';
 import { PHOTO_GET } from '../../api';
 import Loading from '../../Helpers/Loading';
@@ -13,17 +14,29 @@ const PhotoContent = ({ photoId }) => {
   }, [request, photoId]);
 
   if (rqLoading) return <Loading />;
-  return (
-    dataJson && (
+  if (dataJson) {
+    const { photo } = dataJson;
+    return (
       <div className={styles.photoContentContainer}>
-        <h1 className="title">{dataJson.photo.title}</h1>
-        <p>Autor: @{dataJson.photo.author}</p>
-        <p>Acessos: {dataJson.photo.acessos}</p>
-        <p>Idade: {dataJson.photo.idade}</p>
-        <p>Peso: {dataJson.photo.peso}</p>
+        <div className={styles.photoContentImg}>
+          <img src={photo.src} alt={photo.title} />
+        </div>
+        <div className={styles.photoDetails}>
+          <p className={styles.photoAuthor}>
+            <Link to="#">@{photo.author}</Link>
+            <span className={styles.photoViews}>{photo.acessos}</span>
+          </p>
+          <h1 className="title">
+            <Link to="#">{photo.title}</Link>
+          </h1>
+          <ul className={styles.photoAttributes}>
+            <li>{photo.peso} kg</li>
+            <li>{photo.idade} anos</li>
+          </ul>
+        </div>
       </div>
-    )
-  );
+    );
+  }
 };
 
 export default PhotoContent;

@@ -1,1 +1,17 @@
-.modalContainer {}
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem calc(4rem + 15px) 2rem 4rem;
+  background: rgba(0, 0, 0, .4);
+  z-index: 1000;
+}
+
+@media (max-width: 50rem) {
+  .modalContainer {
+    padding: 2rem calc(2rem + 15px) 2rem 2rem;
+  }
+}
