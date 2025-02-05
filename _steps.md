@@ -571,3 +571,20 @@ Dessa forma:
 Obs: Foi feito um ajuste no arquivo `api.jsx` para corrigir os parâmetros na URL da requisição.
 
 ---
+
+### PhotoModal | PhotoContent | Estrutura e lógica inicial
+
+Para exibir o conteúdo de uma foto ao clicar em um item do feed foi criado o Componente `PhotoModal` e o Componente `PhotoContent`. Onde:
+
+- O `PhotoModal` serve para conter o conteúdo dentro de um popup
+- O `PhotoContent` serve para exibir o conteúdo em si
+
+Fazendo essa separação depois será possível reaproveitar o `PhotoContent` para exibir o conteúdo de uma postagem de foto fora de um modal.
+
+No Componente `Home` foi criado o estado `userId`, que serve como parâmetro para exibir o modal, se tiver um dado definido, ou esconder o modal, se for nulo.
+
+O Componente `PhotoModal` recebe o `userId` e desce esse dado para o `PhotoContent`, que exibe o id em tela.
+
+O Componente `PhotosFeed` recebe o `setUserId` e desce esse método para cada item do feed no Componente `PhotoFeedItem`, onde, se o clique for feito no item, o id é setado com o dado recebido via props.
+
+---

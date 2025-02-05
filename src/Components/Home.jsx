@@ -1,9 +1,14 @@
+import React from 'react';
+import PhotoModal from './PhotosFeed/PhotoModal';
 import PhotosFeed from './PhotosFeed/PhotosFeed';
 
 const Home = () => {
+  const [photoId, setPhotoId] = React.useState(null);
+
   return (
     <section className="container mainContainer">
-      <PhotosFeed />
+      {photoId && <PhotoModal photoId={photoId} />}
+      <PhotosFeed setPhotoId={setPhotoId} />
     </section>
   );
 };

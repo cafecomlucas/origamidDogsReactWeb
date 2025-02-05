@@ -4,7 +4,7 @@ import useFetch from '../../Hooks/useFetch';
 import PhotoFeedItem from './PhotoFeedItem';
 import styles from './PhotosFeed.module.css';
 
-const PhotosFeed = ({ userId = 0 }) => {
+const PhotosFeed = ({ userId = 0, setPhotoId }) => {
   const { request, dataJson } = useFetch();
 
   React.useEffect(() => {
@@ -16,7 +16,11 @@ const PhotosFeed = ({ userId = 0 }) => {
     dataJson && (
       <ul className={`${styles.photosFeed} animeLeft`}>
         {dataJson.map((photoItem) => (
-          <PhotoFeedItem key={photoItem.id} {...photoItem} />
+          <PhotoFeedItem
+            key={photoItem.id}
+            setPhotoId={setPhotoId}
+            {...photoItem}
+          />
         ))}
       </ul>
     )
