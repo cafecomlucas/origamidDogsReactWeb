@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <section className="container mainContainer">
-      {photoId && <PhotoModal photoId={photoId} />}
+      {photoId && <PhotoModal photoId={photoId} setPhotoId={setPhotoId} />}
       <PhotosFeed setPhotoId={setPhotoId} />
     </section>
   );

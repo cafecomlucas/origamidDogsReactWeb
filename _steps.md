@@ -616,3 +616,9 @@ Para a estilização foi definido `display: flex` no componente pai (modal), evi
 Na estilização do elemento filho (conteúdo), foi definido um estilo com `display: grid` com duas colunas no modo desktop e com uma coluna no modo mobile.
 
 ---
+
+### PhotoModal | Fechamento do modal
+
+No Componente `PhotoModal` foi criada a lógica de fechamento do modal, onde, ao clicar na área fora do conteúdo, o modal é fechado. A verificação é feita comparando o `target` e o `currentTarget` retornados pelo evento de click (se forem iguais, o modal fecha).
+
+---
