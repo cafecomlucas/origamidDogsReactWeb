@@ -4,6 +4,7 @@ import useFetch from '../../Hooks/useFetch';
 import { PHOTO_GET } from '../../api';
 import Loading from '../../Helpers/Loading';
 import styles from './PhotoContent.module.css';
+import Image from '../../Helpers/Image';
 
 const PhotoContent = ({ photoId }) => {
   const { request, dataJson, rqLoading } = useFetch();
@@ -19,7 +20,7 @@ const PhotoContent = ({ photoId }) => {
     return (
       <div className={styles.photoContentContainer}>
         <div className={styles.photoContentImg}>
-          <img src={photo.src} alt={photo.title} />
+          <Image src={photo.src} alt={photo.title} />
         </div>
         <div className={styles.photoDetails}>
           <p className={styles.photoAuthor}>

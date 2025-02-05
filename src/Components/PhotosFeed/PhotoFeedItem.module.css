@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.photoImg {
+.photoItem > div {
   grid-area: 1/1;
 }
 

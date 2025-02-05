@@ -622,3 +622,13 @@ Na estilização do elemento filho (conteúdo), foi definido um estilo com `disp
 No Componente `PhotoModal` foi criada a lógica de fechamento do modal, onde, ao clicar na área fora do conteúdo, o modal é fechado. A verificação é feita comparando o `target` e o `currentTarget` retornados pelo evento de click (se forem iguais, o modal fecha).
 
 ---
+
+### Image | Definindo um skeleton pra imagens em carregamento
+
+Para melhorar a experiência do usuário foi adicionado o Componente `Image` para exibir uma animação enquanto a imagem está carregando.
+
+Foi criada uma `div` com uma animação via CSS que só aparece enquanto a imagem está carregando (quando o estado do `imgLoad` é ` false`). Quando a imagem termina de carregar, o evento `OnLoad` é disparado, o estado do `imgLoad` é setado pra `true` e é feita a troca da tag `div` pela tag `img`.
+
+Os locais da aplicação onde existiam as tags `img` foram substituídas pelo componente `Image`.
+
+---
