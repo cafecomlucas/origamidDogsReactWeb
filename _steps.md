@@ -588,3 +588,13 @@ O Componente `PhotoModal` recebe o `userId` e desce esse dado para o `PhotoConte
 O Componente `PhotosFeed` recebe o `setUserId` e desce esse método para cada item do feed no Componente `PhotoFeedItem`, onde, se o clique for feito no item, o id é setado com o dado recebido via props.
 
 ---
+
+### PhotoContent | API | Obtendo postagem de foto | PHOTO_GET
+
+No arquivo `api.jsx` foi adicionada a config do novo endpoint que obtem a postagem de uma foto via método GET utilizando o ID da foto como parâmetro.
+
+No Componente `PhotoContent` a requisição é feita na inicialização do Componente utilizando o ID recebido via props.
+
+Os dados da foto são recebidos como resposta e mostrados em tela.
+
+---

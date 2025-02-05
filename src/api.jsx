@@ -60,3 +60,11 @@ export const PHOTOS_GET = ({ page, total, user }) => ({
     cache: 'no-store',
   },
 });
+
+export const PHOTO_GET = (id) => ({
+  url: `${API_URL}/api/photo/${id}`,
+  options: {
+    method: 'GET',
+    cache: 'no-store',
+  },
+});
