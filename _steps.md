@@ -598,3 +598,11 @@ No Componente `PhotoContent` a requisição é feita na inicialização do Compo
 Os dados da foto são recebidos como resposta e mostrados em tela.
 
 ---
+
+### Loading | Componente padrão pro carregamento
+
+Foi definido o Componente padrão `Loading` para mostrar o status de "carregando" enquanto os dados das requisições não ficam disponíveis.
+
+Esse Componente foi adicionado aos Componentes `PhotosFeed`, `AccountPhotosFeed` e `PhotoContent`.
+
+---

@@ -1,16 +1,18 @@
 import React from 'react';
 import useFetch from '../../Hooks/useFetch';
 import { PHOTO_GET } from '../../api';
+import Loading from '../../Helpers/Loading';
 import styles from './PhotoContent.module.css';
 
 const PhotoContent = ({ photoId }) => {
-  const { request, dataJson } = useFetch();
+  const { request, dataJson, rqLoading } = useFetch();
 
   React.useEffect(() => {
     const { url, options } = PHOTO_GET(photoId);
     request(url, options);
   }, [request, photoId]);
 
+  if (rqLoading) return <Loading />;
   return (
     dataJson && (
       <div className={styles.photoContentContainer}>
