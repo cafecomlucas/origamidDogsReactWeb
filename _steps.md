@@ -690,3 +690,11 @@ Para atualizar o frame atual (`crrFrame`) foi criado o método `updateFrame`, qu
 O método `updateFrame` precisa iniciar e se repetir assim que o Componente passa a existir, então foi definido um `setInterval` no `React.useEffect` para chamar o método repetidamente. Quando o Componente `Loading` deixa de existir, o `setInterval` é interrompido (através do retorno do `useEffect`).
 
 ---
+
+### Bugfix: Removendo o Loading da página inicial da conta
+
+Como o carregamento de autenticação (estado `isAppLoading`) já é verificado no Componente geral da aplicação (`AppWrapper`), estava redundante fazer a mesma verificação na tela da conta de usuário, então isso o componente de `Loading` foi removido da tela da conta de usuário (`AccountPhotosFeed`).
+
+(Obs: o uso do `rqLoading` estava errado pois o Componente `UserContextStorage` retorna o estado `isAppLoading` e não o estado `rqLoading`)
+
+---
