@@ -632,3 +632,21 @@ Foi criada uma `div` com uma animação via CSS que só aparece enquanto a image
 Os locais da aplicação onde existiam as tags `img` foram substituídas pelo componente `Image`.
 
 ---
+
+### PhotosFeedModal | Isolando o feed e o modal para reaproveitamento
+
+Na tela inicial (Componente `Home`, rota `/`) o modal funciona, mas na tela da conta do usuário (Componente `AccountPhotosFeed`, rota `/account`) o modal não estava incluído.
+
+Foi criado o novo Componente `PhotosFeedModal` para isolar o código do Feed e do Modal em um único lugar, dessa forma:
+
+- o código anterior da `Home` foi movido para o `PhotosFeedModal`
+- `PhotosFeed` e `PhotosModal` ficam dentro de `PhotosFeedModal`
+- a página `Home` agora importa o `PhotosFeedModal`
+- a página `AccountPhotosFeed` agora também importa o `PhotosFeedModal`
+
+Por conta dessa modificação, como o `userId` do usuário é obtido na página `AccountPhotosFeed` e agora essa página importa o `PhotosFeedModal` ao invés do `PhotosFeed`, o valor padrão do `userId` precisou ser definido no mesmo nível do `PhotosFeedModal` e desce esse dado para o `PhotosFeed`, sendo assim:
+
+- a importação do `PhotosFeedModal` no Componente `Home` utiliza o `userId` padrão (`0`)
+- a importação do `PhotosFeedModal` no Componente `AccountPhotosFeed` utiliza o dado obtido do usuário
+
+---

@@ -5,7 +5,7 @@ import PhotoFeedItem from './PhotoFeedItem';
 import Loading from '../../Helpers/Loading';
 import styles from './PhotosFeed.module.css';
 
-const PhotosFeed = ({ userId = 0, setPhotoId }) => {
+const PhotosFeed = ({ userId, setPhotoId }) => {
   const { request, dataJson, rqLoading } = useFetch();
 
   React.useEffect(() => {
