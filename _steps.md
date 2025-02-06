@@ -674,3 +674,19 @@ No Componente `PhotoDelete` o endpoint é chamado passando o id da foto atual (`
 No Componente `Loading` foi criada a estrutura e estilização para exibir um ícone animado de carregamento no centro da tela.
 
 ---
+
+### Loading | Lógica da animação
+
+No Componente `Loading` foi criada a lógica da animação.
+
+A animação foi feita com base em um arquivo SVG com 4 frames diferentes. Cada frame foi agrupado (em uma tag `g`), resultando em 4 grupos diferentes. Para cada grupo é setado uma estilização dinâmica com base no retorno do método `checkFrame(frameEl)`, onde `frameEl` é o número do frame de cada grupo.
+
+Para o frame que precisa ser mostrado no momento foi criado o estado `crrFrame`, que guarda o frame atual.
+
+No método `checkFrame` é verificado se o frame do grupo é igual ao frame atual. Quando é igual, o grupo é mostrado em tela, quando não, o grupo desapacere (com o retorno `display: none`).
+
+Para atualizar o frame atual (`crrFrame`) foi criado o método `updateFrame`, que a cada chamada incrementa o frame atual até atingir o limite e reseta pra `0` quando o limite é atingido.
+
+O método `updateFrame` precisa iniciar e se repetir assim que o Componente passa a existir, então foi definido um `setInterval` no `React.useEffect` para chamar o método repetidamente. Quando o Componente `Loading` deixa de existir, o `setInterval` é interrompido (através do retorno do `useEffect`).
+
+---
