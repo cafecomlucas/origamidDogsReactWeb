@@ -668,3 +668,9 @@ O Componente `PhotoContent` foi alterado para passar o id da foto atual via prop
 No Componente `PhotoDelete` o endpoint é chamado passando o id da foto atual (`photoId`) e o `token` do usuário logado como parâmetro.
 
 ---
+
+### Loading | Animação pro carregamento | Estrutura e estilização
+
+No Componente `Loading` foi criada a estrutura e estilização para exibir um ícone animado de carregamento no centro da tela.
+
+---
