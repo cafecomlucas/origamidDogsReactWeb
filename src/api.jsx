@@ -68,3 +68,13 @@ export const PHOTO_GET = (id) => ({
     cache: 'no-store',
   },
 });
+
+export const PHOTO_DELETE = (id, token) => ({
+  url: `${API_URL}/api/photo/${id}`,
+  options: {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  },
+});

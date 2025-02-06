@@ -658,3 +658,13 @@ Para deletar uma postagem de foto, foi criado o Componente `PhotoDelete` com a e
 No Componente `PhotoContent` foi adicionada uma condição onde o botão só aparece se o autor do post for igual ao usuário logado.
 
 ---
+
+### PhotoDelete | API | Requisição para deletar foto
+
+No arquivo `api.jsx` foi adicionado a config de um novo endpoint para deletar o post de foto.
+
+O Componente `PhotoContent` foi alterado para passar o id da foto atual via props para o Componente `PhotoDelete`.
+
+No Componente `PhotoDelete` o endpoint é chamado passando o id da foto atual (`photoId`) e o `token` do usuário logado como parâmetro.
+
+---
