@@ -5,9 +5,12 @@ import { PHOTO_GET } from '../../api';
 import Loading from '../../Helpers/Loading';
 import styles from './PhotoContent.module.css';
 import Image from '../../Helpers/Image';
+import { UserContext } from '../../UserContext';
+import PhotoDelete from './PhotoDelete';
 
 const PhotoContent = ({ photoId }) => {
   const { request, dataJson, rqLoading } = useFetch();
+  const { userData } = React.useContext(UserContext);
 
   React.useEffect(() => {
     const { url, options } = PHOTO_GET(photoId);
@@ -24,7 +27,11 @@ const PhotoContent = ({ photoId }) => {
         </div>
         <div className={styles.photoDetails}>
           <p className={styles.photoAuthor}>
-            <Link to="#">@{photo.author}</Link>
+            {userData.username == photo.author ? (
+              <PhotoDelete />
+            ) : (
+              <Link to="#">@{photo.author}</Link>
+            )}
             <span className={styles.photoViews}>{photo.acessos}</span>
           </p>
           <h1 className="title">

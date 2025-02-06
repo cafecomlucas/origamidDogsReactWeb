@@ -650,3 +650,11 @@ Por conta dessa modificação, como o `userId` do usuário é obtido na página 
 - a importação do `PhotosFeedModal` no Componente `AccountPhotosFeed` utiliza o dado obtido do usuário
 
 ---
+
+### PhotoDelete | Estrutura inicial
+
+Para deletar uma postagem de foto, foi criado o Componente `PhotoDelete` com a estrutura inicial e o CSS.
+
+No Componente `PhotoContent` foi adicionada uma condição onde o botão só aparece se o autor do post for igual ao usuário logado.
+
+---
