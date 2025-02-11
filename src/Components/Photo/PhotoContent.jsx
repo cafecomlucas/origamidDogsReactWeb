@@ -7,6 +7,7 @@ import styles from './PhotoContent.module.css';
 import Image from '../../Helpers/Image';
 import { UserContext } from '../../UserContext';
 import PhotoDelete from './PhotoDelete';
+import PhotoComments from './PhotoComments';
 
 const PhotoContent = ({ photoId }) => {
   const { request, dataJson, rqLoading } = useFetch();
@@ -19,7 +20,8 @@ const PhotoContent = ({ photoId }) => {
 
   if (rqLoading) return <Loading />;
   if (dataJson) {
-    const { photo } = dataJson;
+    const { photo, comments } = dataJson;
+    console.log(comments);
     return (
       <div className={styles.photoContentContainer}>
         <div className={styles.photoContentImg}>
@@ -42,6 +44,7 @@ const PhotoContent = ({ photoId }) => {
             <li>{photo.idade} anos</li>
           </ul>
         </div>
+        <PhotoComments id={photo.id} comments={comments} />
       </div>
     );
   }

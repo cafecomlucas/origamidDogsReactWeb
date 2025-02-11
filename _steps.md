@@ -698,3 +698,15 @@ Como o carregamento de autenticação (estado `isAppLoading`) já é verificado 
 (Obs: o uso do `rqLoading` estava errado pois o Componente `UserContextStorage` retorna o estado `isAppLoading` e não o estado `rqLoading`)
 
 ---
+
+### PhotoComments | Listagem dos comentários | Estrutura inicial
+
+Para a listagem dos comentários foi criado o Componente `PhotoComments` com a estrutura e o CSS inicial.
+
+Foi necessário fazer um ajuste no CSS do Componente `PhotoContent`, para que a imagem ocupe as 3 primeiras linhas (um `grid-row` de `1/4` no desktop). Dessa forma, com a foto ocupando todas as linhas da coluna 1, na coluna 2 fica com:
+
+- na 1a linha: a div com detalhes da foto
+- na 2a linha: a lista de comentários
+- na 3a linha: (ainda será criado) o form para adicionar comentário
+
+---
