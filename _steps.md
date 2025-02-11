@@ -699,7 +699,7 @@ Como o carregamento de autenticação (estado `isAppLoading`) já é verificado 
 
 ---
 
-### PhotoComments | Listagem dos comentários | Estrutura inicial
+### PhotoComments | Listagem dos comentários | Estrutura inicial | Ajuste CSS
 
 Para a listagem dos comentários foi criado o Componente `PhotoComments` com a estrutura e o CSS inicial.
 
@@ -708,5 +708,18 @@ Foi necessário fazer um ajuste no CSS do Componente `PhotoContent`, para que a 
 - na 1a linha: a div com detalhes da foto
 - na 2a linha: a lista de comentários
 - na 3a linha: (ainda será criado) o form para adicionar comentário
+
+---
+
+### PhotoNewCommentForm | Form para adicionar comentário | Estrutura inicial | Ajuste CSS
+
+Para postar um novo comentário foi criado o Componente `PhotoNewCommentForm` com a estrutura e o CSS inicial.
+
+Foi necessário fazer um ajuste no CSS do Componente `PhotoContent` para o ajuste automático das linhas setando a prop `grid-template-rows` com `auto 1fr auto`. Dessa forma:
+
+- a 1a linha ocupa um espaço automático, com base no conteúdo
+- se a 3a linha existir, a 2a linha ocupa o restante do espaço até "chegar" na 3a linha
+- se a 3a linha existir, a 3a linha ocupa um espaço automático, com base no conteúdo
+- se a 3a linha não existir, a 2a linha ocupa o restante do espaço até o fim da coluna
 
 ---

@@ -1,4 +1,5 @@
 import styles from './PhotoComments.module.css';
+import PhotoNewCommentForm from './PhotoNewCommentForm';
 
 const PhotoComments = ({ comments }) => {
   return (
@@ -11,6 +12,7 @@ const PhotoComments = ({ comments }) => {
           </li>
         ))}
       </ul>
+      <PhotoNewCommentForm />
     </>
   );
 };
