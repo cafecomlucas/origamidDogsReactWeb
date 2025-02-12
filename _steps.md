@@ -757,3 +757,13 @@ Quando a postagem é bem sucedida a lista de comentários em tela também precis
 - No Componente `PhotoNewCommentForm` atualizar a `commentsList` com o método `setCommentsList` logo depois que a postagem for bem sucedida (`response.ok` for verdadeiro).
 
 ---
+
+### PhotoComments | Estilos | Lidando com o Scroll
+
+No Componente `PhotoComments` foi definida a estilização padrão de cada item de comentário.
+
+Quando existem muitos comentários o formulário é empurrado pra baixo, saindo do campo de visão. Para resolver isso foi definido um `overflow-y` de `auto` no CSS para lidar com o tamanho vertical, criando uma barra de rolagem vertical. Também foi definido o `word-break: break-word` para não existir uma barra de rolagem horizontal.
+
+Além disso, ao sair do Componente e entrar de novo, o padrão da barra de rolagem é ficar no topo. Para resolver isso o `scrollTop` é definido para a altura do elemento toda vez que o estado de `commentsList` é atualizado, ou seja, ao abrir o modal, ou ao postar um novo comentário.
+
+---
