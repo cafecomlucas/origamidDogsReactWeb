@@ -741,3 +741,9 @@ Também foi definido o Componente `ErrorBox` que exibe uma mensagem de erro base
 Bugfix: No Componente `PhotoContent` foi necessário adicionar a verificação adicional da existencia de `userData` na condição de exibição do botão de deletar foto.
 
 ---
+
+### PhotoNewCommentForm | Exibição do form com usuário logado
+
+Para exibir o formulário de novo comentário apenas quando o usuário está logado foi feito um ajuste no `PhotoComments` verificando o estado global `isUserLoggedIn` antes de exibir ou ocultar o Componente `PhotoNewCommentForm`.
+
+---

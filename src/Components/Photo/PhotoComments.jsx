@@ -1,7 +1,11 @@
+import React from 'react';
 import styles from './PhotoComments.module.css';
 import PhotoNewCommentForm from './PhotoNewCommentForm';
+import { UserContext } from '../../UserContext';
 
 const PhotoComments = ({ photoId, comments }) => {
+  const { isUserLoggedIn } = React.useContext(UserContext);
+
   return (
     <>
       <ul className={styles.commentsList}>
@@ -12,7 +16,7 @@ const PhotoComments = ({ photoId, comments }) => {
           </li>
         ))}
       </ul>
-      <PhotoNewCommentForm photoId={photoId} />
+      {isUserLoggedIn && <PhotoNewCommentForm photoId={photoId} />}
     </>
   );
 };
