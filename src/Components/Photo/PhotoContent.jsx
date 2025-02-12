@@ -29,7 +29,7 @@ const PhotoContent = ({ photoId }) => {
         </div>
         <div className={styles.photoDetails}>
           <p className={styles.photoAuthor}>
-            {userData.username == photo.author ? (
+            {userData && userData.username == photo.author ? (
               <PhotoDelete photoId={photo.id} />
             ) : (
               <Link to="#">@{photo.author}</Link>

@@ -735,3 +735,9 @@ No Componente `PhotoNewCommentForm` foi adicionado o método `handleCommentSubmi
 Também foi definido o Componente `ErrorBox` que exibe uma mensagem de erro baseada no estado de `rqError`.
 
 ---
+
+### PhotoContent BugFix
+
+Bugfix: No Componente `PhotoContent` foi necessário adicionar a verificação adicional da existencia de `userData` na condição de exibição do botão de deletar foto.
+
+---
