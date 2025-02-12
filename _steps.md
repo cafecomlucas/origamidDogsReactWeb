@@ -747,3 +747,13 @@ Bugfix: No Componente `PhotoContent` foi necessário adicionar a verificação a
 Para exibir o formulário de novo comentário apenas quando o usuário está logado foi feito um ajuste no `PhotoComments` verificando o estado global `isUserLoggedIn` antes de exibir ou ocultar o Componente `PhotoNewCommentForm`.
 
 ---
+
+### PhotoComments | Atualizando lista de comentários após criação do novo comentário
+
+Quando a postagem é bem sucedida a lista de comentários em tela também precisa ser atualizada. Para isso foi necessário:
+
+- No Componente `PhotoComments` criar o estado `commentsList` que inicia com os dados iniciais de `comments` recebidos via props
+- descer o método `setCommentsList` para o Componente `PhotoNewCommentForm`
+- No Componente `PhotoNewCommentForm` atualizar a `commentsList` com o método `setCommentsList` logo depois que a postagem for bem sucedida (`response.ok` for verdadeiro).
+
+---

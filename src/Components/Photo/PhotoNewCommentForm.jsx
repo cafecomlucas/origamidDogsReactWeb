@@ -4,7 +4,7 @@ import useFetch from '../../Hooks/useFetch';
 import ErrorBox from '../../Helpers/ErrorBox';
 import { PHOTO_COMMENT_POST } from '../../api';
 
-const PhotoNewCommentForm = ({ photoId }) => {
+const PhotoNewCommentForm = ({ photoId, setCommentsList }) => {
   const [commentText, setCommentText] = React.useState('');
   const { request, rqError } = useFetch();
 
@@ -23,12 +23,13 @@ const PhotoNewCommentForm = ({ photoId }) => {
         },
         token,
       );
-      const { response } = await request(url, options);
+      const { response, resJson } = await request(url, options);
       if (response.ok) {
-        // setCommentText('');
+        setCommentText('');
+        setCommentsList((comments) => [...comments, resJson]);
       }
     },
-    [photoId, commentText, request],
+    [photoId, commentText, request, setCommentText, setCommentsList],
   );
 
   return (
