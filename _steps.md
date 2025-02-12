@@ -775,3 +775,9 @@ Foram criados os estilos do Componente `PhotoNewCommentForm`, definindo a dispos
 Para o `button` também foi definda uma imagem SVG no lugar do texto.
 
 ---
+
+### PhotoNewCommentForm | Estilos | Animando botão
+
+Foi criado um estilo para o `:hover` do botão, alterando a cor do `fill`/`stroke` e alterando a opacidade de um grupo de `paths` através de uma animação CSS.
+
+---

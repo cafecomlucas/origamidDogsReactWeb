@@ -36,3 +36,19 @@
   overflow: hidden;
   outline: none;
 }
+
+.commentButton:hover svg path {
+  fill: #fea;
+  stroke: #fb1;
+}
+
+.commentButton:hover svg g {
+  opacity: 0;
+  animation: latir .4s linear infinite;
+}
+
+@keyframes latir {
+  to {
+    opacity: 1;
+  }
+}
