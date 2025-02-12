@@ -767,3 +767,11 @@ Quando existem muitos comentários o formulário é empurrado pra baixo, saindo 
 Além disso, ao sair do Componente e entrar de novo, o padrão da barra de rolagem é ficar no topo. Para resolver isso o `scrollTop` é definido para a altura do elemento toda vez que o estado de `commentsList` é atualizado, ou seja, ao abrir o modal, ou ao postar um novo comentário.
 
 ---
+
+### PhotoNewCommentForm | Estilos | Ícone do botão
+
+Foram criados os estilos do Componente `PhotoNewCommentForm`, definindo a disposição dos itens do form, os estilos padrão do campo `textarea`, os estilos do `:hover` do `textarea` e os estilos do `button`.
+
+Para o `button` também foi definda uma imagem SVG no lugar do texto.
+
+---

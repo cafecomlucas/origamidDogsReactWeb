@@ -3,6 +3,7 @@ import styles from './PhotoNewCommentForm.module.css';
 import useFetch from '../../Hooks/useFetch';
 import ErrorBox from '../../Helpers/ErrorBox';
 import { PHOTO_COMMENT_POST } from '../../api';
+import DogBark from '../../Assets/dog-bark.svg?react';
 
 const PhotoNewCommentForm = ({ photoId, setCommentsList }) => {
   const [commentText, setCommentText] = React.useState('');
@@ -42,7 +43,9 @@ const PhotoNewCommentForm = ({ photoId, setCommentsList }) => {
         value={commentText}
         onChange={handleCommentChange}
       ></textarea>
-      <button className={styles.commentButton}>Enviar</button>
+      <button className={styles.commentButton}>
+        <DogBark />
+      </button>
       {rqError && <ErrorBox message={rqError} />}
     </form>
   );

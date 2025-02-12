@@ -1,5 +1,38 @@
-.commentForm {}
+.commentForm {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  margin: 1rem;
+}
 
-.commentField {}
+.commentField {
+  display: block;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  font-family: var(--type-first);
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: .2rem;
+  padding: .5rem;
+  background: #eee;
+  transition: .2s;
+}
 
-.commentButton {}
+.commentField:focus,
+.commentField:hover {
+  border-color: #fb1;
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+}
+
+.commentButton {
+  border: none;
+  cursor: pointer;
+  color: #333;
+  background: transparent;
+  font-size: 1rem;
+  padding: 0 1rem;
+  overflow: hidden;
+  outline: none;
+}
