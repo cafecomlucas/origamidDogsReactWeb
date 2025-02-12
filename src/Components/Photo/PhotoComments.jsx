@@ -1,7 +1,7 @@
 import styles from './PhotoComments.module.css';
 import PhotoNewCommentForm from './PhotoNewCommentForm';
 
-const PhotoComments = ({ comments }) => {
+const PhotoComments = ({ photoId, comments }) => {
   return (
     <>
       <ul className={styles.commentsList}>
@@ -12,7 +12,7 @@ const PhotoComments = ({ comments }) => {
           </li>
         ))}
       </ul>
-      <PhotoNewCommentForm />
+      <PhotoNewCommentForm photoId={photoId} />
     </>
   );
 };

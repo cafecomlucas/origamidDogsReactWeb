@@ -78,3 +78,15 @@ export const PHOTO_DELETE = (id, token) => ({
     },
   },
 });
+
+export const PHOTO_COMMENT_POST = (id, body, token) => ({
+  url: `${API_URL}/api/comment/${id}`,
+  options: {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  },
+});

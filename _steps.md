@@ -723,3 +723,15 @@ Foi necessário fazer um ajuste no CSS do Componente `PhotoContent` para o ajust
 - se a 3a linha não existir, a 2a linha ocupa o restante do espaço até o fim da coluna
 
 ---
+
+### PhotoNewCommentForm | API | Criando novo Comentário
+
+Para a criação de um novo comentário em uma foto específica, no arquivo `api.jsx` foi adicionada a config de uma nova rota (`PHOTO_COMMENT_POST`) que recebe o id da foto, o texto do comentário e o token do usuário logado.
+
+Na estrutura dos Componentes, foi necessário "descer" o id da foto atual (`photoId`) no Componente `PhotoContent`, que passa a prop para o Componente `PhotoComments` e finalmente para o Componente `PhotoNewCommentForm`.
+
+No Componente `PhotoNewCommentForm` foi adicionado o método `handleCommentSubmit` que lida com o envio do formulário e faz a postagem do comentário utilizando a config criada no arquivo `api.jsx`.
+
+Também foi definido o Componente `ErrorBox` que exibe uma mensagem de erro baseada no estado de `rqError`.
+
+---
