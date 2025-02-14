@@ -5,13 +5,37 @@ import PhotoFeedItem from './PhotoFeedItem';
 import Loading from '../../Helpers/Loading';
 import styles from './PhotosFeed.module.css';
 
-const PhotosFeed = ({ userId, setPhotoId }) => {
+const PhotosFeed = ({
+  userId,
+  setPhotoId,
+  pageNumber = 1,
+  setPageLoaded,
+  setIsLastPage,
+}) => {
   const { request, dataJson, rqLoading } = useFetch();
+  const totalItens = 3;
+
+  const getPage = React.useCallback(async () => {
+    const { url, options } = PHOTOS_GET({
+      page: pageNumber,
+      total: totalItens,
+      user: userId,
+    });
+    const { response, resJson } = await request(url, options);
+    if (response.ok) {
+      if (resJson.length < totalItens) {
+        // LAST PAGE
+        setIsLastPage(true);
+      } else {
+        // LOADED
+        setPageLoaded(true);
+      }
+    }
+  }, [request, userId, pageNumber, setPageLoaded, setIsLastPage]);
 
   React.useEffect(() => {
-    const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: userId });
-    request(url, options);
-  }, [request, userId]);
+    getPage();
+  }, [getPage]);
 
   if (rqLoading) return <Loading />;
   return (

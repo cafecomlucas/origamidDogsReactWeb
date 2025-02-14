@@ -781,3 +781,53 @@ Para o `button` também foi definda uma imagem SVG no lugar do texto.
 Foi criado um estilo para o `:hover` do botão, alterando a cor do `fill`/`stroke` e alterando a opacidade de um grupo de `paths` através de uma animação CSS.
 
 ---
+
+### PhotosFeedModal | PhotosFeed | Scroll infinito
+
+#### Carregamento de cada página
+
+No Componente `PhotosFeedModal`, para lidar com a lógica de carregamento da página, foi criado:
+
+- `pageList`, para guardar o `index` de cada página carregada
+- `isPageLoaded` que guarda o status de carregamento atual
+
+O `pageList` é percorrido com o `map` para exibir múltiplos Componentes `PhotosFeed`, carregando um novo Componente a cada nova página.
+
+Para verificar se é o momento de carregar uma nova página o método `checkScroll` foi vinculado aos eventos de `wheel` e `scroll` do navegador. Para fazer essa verificação é necessário saber o seguinte:
+
+- A altura total de todo o conteúdo, armazenado em `offsetHeight`
+- A altura de exibição (ou quanto do conteúdo já foi "percorrido"), armazenado em `innerHeight`
+
+Com isso é possível saber quando ainda falta "percorrer" até chegar ao final da página subtraindo o `innerHeight` de `offsetHeight`, gerando o resultado guardado em `heightLimit`. Por fim, como essa checagem pra saber se o usuário está no final da página precisa ocorrer um pouco antes de chegar ao final, o resultado é feito vezes 75%, para que a próxima página comece a carregar ao faltar 25% pro fim do scroll.
+
+Foi feito um `if` que verifica se o scroll atual (`scrollY`) é maior que o limite (`heightLimit`), então o estado `pageList` é atualizado com um item a mais e o estado `isPageLoaded` é atualizado para `true`, para que nenhuma página seja adicionada antes da atual ser carregada.
+
+O estado `isPageLoaded` é setado pra `false` assim que a requisição é concluída. Para isso, o método `setPageLoaded` precisou "descer" pro Componente `PhotosFeed`.
+
+#### Verificando se chegou na última página
+
+Ao chegar na última página, nenhuma outra página pode ser carregada, por isso foi criado o estado:
+
+- `isLastPage`, que guarda o status pra saber se a última página carregada
+
+O estado `isLastPage` é iniciado setado pra `false` e só é setado pra `true` quando o número de itens do Feed forem menores que o limite de itens por página (constante `totalItens`). Para fazer isso foi necessário descer o método `setIsLastPage` pro Componente `PhotosFeed`.
+
+No Componente `PhotosFeed` foi necessário fazer as atualizações do `pageLoaded` e `isLastPage` logo após a conclusão da requisição assíncrona, por isso foi necessário mover o código do `useEffect` para o novo método `getPage`, pois o `useEffect` não aceita função assíncrona como parâmetro. Assim, apenas o método `getPage` é chamado no `useEffect`.
+
+Dentro do método `getPage` foi feita a lógica que seta a página como carregada após o fim da requisição e que seta o status da última página quando a quantidade de itens na página for menor que o total por página.
+
+#### Atraso na chamada do método checkScroll
+
+Ainda foi necessário voltar ao Componente `PhotosFeedModal` para fazer um ajuste na quantidade de chamadas ao método `checkScroll`.
+
+Como o evento de `wheel` e `scroll` é chamado com uma frequência rápida, foi preciso "atrasar" a chamada, para dar tempo da atualização da barra de scroll feita pelo conteúdo e evitar que várias páginas sejam chamadas ao mesmo tempo por conta da barra ainda estar pequena.
+
+Quando o tempo entre uma chamada e outra (`msLastTime`) for menor que `200ms` a execução do método `checkScroll` é interrompida.
+
+Essa solução serve principalmente em conexões muito lentas e também acaba otimizando a performance por evitar chamadas desnecessárias.
+
+#### Fix no componente de carregamento (Loading)
+
+Ao carregar várias páginas foi possível ver que posicionamento do componente de carregamento estava incorreto, então foi necessário ajustar no estilo CSS o `position` para `fixed`.
+
+---
