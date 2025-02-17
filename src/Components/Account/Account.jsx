@@ -5,6 +5,7 @@ import AccountPhotosFeed from './AccountPhotosFeed';
 import AccountStats from './AccountStats';
 import AccountNewPhoto from './AccountNewPhoto';
 import AccountScreen from './AccountScreen';
+import NotFound from '../NotFound';
 
 const Account = () => {
   const { isUserLoggedIn } = React.useContext(UserContext);
@@ -36,6 +37,7 @@ const Account = () => {
           </AccountScreen>
         }
       />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

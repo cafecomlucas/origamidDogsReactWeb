@@ -855,3 +855,9 @@ Para exibir apenas as fotos de um usuário foi criado o Componente `ProfilePage`
 Não foi necessário fazer alterações na chamada pra API, pois a API aceita tanto o `id` do usuário (numérico), quanto o `username` (string com nome do autor).
 
 ---
+
+### NotFound | Nova página para erro de página não encontrada
+
+Para exibir uma página de erro 404 foi criado o Componente `NotFound`, que é renderizado se a URL não for igual nenhum dos paths configurados. A chamada pro Componente `NotFound` foi configurada nos Componentes `App`, `Login`, e `Account`, que são os locais onde as rotas foram definidas para a aplicação.
+
+---
