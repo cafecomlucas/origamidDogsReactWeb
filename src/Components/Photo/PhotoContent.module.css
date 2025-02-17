@@ -82,3 +82,20 @@
   top: 3px;
   background: #333;
 }
+
+.photoContentContainer.isPage {
+  grid-template-columns: 1fr;
+  height: initial;
+  max-height: initial;
+
+}
+
+.isPage .photoDetails {
+  padding: 2rem 0 0;
+}
+
+.isPage .photoContentImg {
+  grid-row: 1;
+  border-radius: .4rem;
+  overflow: hidden;
+}

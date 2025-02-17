@@ -9,7 +9,7 @@ import { UserContext } from '../../UserContext';
 import PhotoDelete from './PhotoDelete';
 import PhotoComments from './PhotoComments';
 
-const PhotoContent = ({ photoId }) => {
+const PhotoContent = ({ photoId, isPage }) => {
   const { request, dataJson, rqLoading } = useFetch();
   const { userData } = React.useContext(UserContext);
 
@@ -23,7 +23,11 @@ const PhotoContent = ({ photoId }) => {
     const { photo, comments } = dataJson;
     console.log(comments);
     return (
-      <div className={styles.photoContentContainer}>
+      <div
+        className={`${styles.photoContentContainer} ${
+          isPage ? styles.isPage : ''
+        }`}
+      >
         <div className={styles.photoContentImg}>
           <Image src={photo.src} alt={photo.title} />
         </div>
@@ -44,7 +48,7 @@ const PhotoContent = ({ photoId }) => {
             <li>{photo.idade} anos</li>
           </ul>
         </div>
-        <PhotoComments photoId={photo.id} comments={comments} />
+        <PhotoComments photoId={photo.id} comments={comments} isPage={isPage} />
       </div>
     );
   }

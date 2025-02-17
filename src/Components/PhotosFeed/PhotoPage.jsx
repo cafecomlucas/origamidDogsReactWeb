@@ -6,7 +6,7 @@ const PhotoPage = () => {
 
   return (
     <section className="container mainContainer">
-      <PhotoContent photoId={photoId} />
+      <PhotoContent photoId={photoId} isPage={true} />
     </section>
   );
 };

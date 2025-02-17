@@ -12,3 +12,7 @@
 .commentAuthor {
   font-weight: bold;
 }
+
+.commentsList.isPage {
+  padding: 0 0 1rem 0;
+}

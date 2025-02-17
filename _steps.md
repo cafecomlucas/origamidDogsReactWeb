@@ -837,3 +837,13 @@ Ao carregar várias páginas foi possível ver que posicionamento do componente 
 Para acessar a página de uma foto individual foi criado o Componente `PhotoPage`, que é acessado por uma rota nova configurada no `App.jsx`. Um link para a página da foto foi adicionado ao título de cada foto no componente `PhotoContent`, assim, ao acessar um modal e clicar em um título é possível ver a página da respectiva foto.
 
 ---
+
+### PhotoPage | Estilos exclusivos da página
+
+Para criar estilos exclusivos da página da foto individual foi criada a prop `isPage`, que indica se o Componente `PhotoContent` deve ter o estilos adicionais ou não.
+
+Essa mesma prop `isPage` precisou "descer" para os Componentes filho e foram definidos estilos adicionais para o Componente `PhotoComment` (que lista os comentários) e `PhotoNewCommentForm` (que cria um novo comentário).
+
+Em cada arquivo CSS foi criada a classe `isPage` para editar os estilos adicionais para quando o usuário acessar a foto via página (ao invés de acessar via modal).
+
+---

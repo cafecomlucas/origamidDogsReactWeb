@@ -5,7 +5,7 @@ import ErrorBox from '../../Helpers/ErrorBox';
 import { PHOTO_COMMENT_POST } from '../../api';
 import DogBark from '../../Assets/dog-bark.svg?react';
 
-const PhotoNewCommentForm = ({ photoId, setCommentsList }) => {
+const PhotoNewCommentForm = ({ photoId, setCommentsList, isPage }) => {
   const [commentText, setCommentText] = React.useState('');
   const { request, rqError } = useFetch();
 
@@ -34,7 +34,10 @@ const PhotoNewCommentForm = ({ photoId, setCommentsList }) => {
   );
 
   return (
-    <form onSubmit={handleCommentSubmit} className={styles.commentForm}>
+    <form
+      onSubmit={handleCommentSubmit}
+      className={`${styles.commentForm} ${isPage ? styles.isPage : ''}`}
+    >
       <textarea
         className={styles.commentField}
         placeholder="Comente..."
