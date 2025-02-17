@@ -8,6 +8,7 @@ import { UserContextStorage } from './UserContext';
 import Account from './Components/Account/Account';
 import AppWrapper from './Helpers/AppWrapper';
 import PhotoPage from './Components/PhotosFeed/PhotoPage';
+import ProfilePage from './Components/Profile/ProfilePage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="login/*" element={<Login />} />
             <Route path="account/*" element={<Account />} />
             <Route path="photo/:photoId" element={<PhotoPage />} />
+            <Route path="profile/:userAuthor" element={<ProfilePage />} />
           </Routes>
           <Footer />
         </AppWrapper>

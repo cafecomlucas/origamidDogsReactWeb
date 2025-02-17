@@ -36,7 +36,7 @@ const PhotoContent = ({ photoId, isPage }) => {
             {userData && userData.username == photo.author ? (
               <PhotoDelete photoId={photo.id} />
             ) : (
-              <Link to="#">@{photo.author}</Link>
+              <Link to={`/profile/${photo.author}`}>@{photo.author}</Link>
             )}
             <span className={styles.photoViews}>{photo.acessos}</span>
           </p>

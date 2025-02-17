@@ -847,3 +847,11 @@ Essa mesma prop `isPage` precisou "descer" para os Componentes filho e foram def
 Em cada arquivo CSS foi criada a classe `isPage` para editar os estilos adicionais para quando o usuário acessar a foto via página (ao invés de acessar via modal).
 
 ---
+
+### ProfilePage | Nova página de usuário
+
+Para exibir apenas as fotos de um usuário foi criado o Componente `ProfilePage` que reaproveita o Componente `PhotosFeedModal`. O acesso é feito por uma nova rota configurada no `App.jsx`. Um link para a página do usuário foi adicionado no Componente `PhotoContent`, assim, ao acessar um modal e clicar no nome do autor é possível ver a página do respectivo usuário.
+
+Não foi necessário fazer alterações na chamada pra API, pois a API aceita tanto o `id` do usuário (numérico), quanto o `username` (string com nome do autor).
+
+---
