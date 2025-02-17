@@ -831,3 +831,9 @@ Essa solução serve principalmente em conexões muito lentas e também acaba ot
 Ao carregar várias páginas foi possível ver que posicionamento do componente de carregamento estava incorreto, então foi necessário ajustar no estilo CSS o `position` para `fixed`.
 
 ---
+
+### PhotoPage | Estrtutura inicial
+
+Para acessar a página de uma foto individual foi criado o Componente `PhotoPage`, que é acessado por uma rota nova configurada no `App.jsx`. Um link para a página da foto foi adicionado ao título de cada foto no componente `PhotoContent`, assim, ao acessar um modal e clicar em um título é possível ver a página da respectiva foto.
+
+---
