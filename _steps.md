@@ -888,3 +888,18 @@ Para a página de redefinição de senha foi criada a estrutura inicial no Compo
 Também foi feito um ajuste no Componente `LoginRecoveryPassword` para exibir a mensagem de resposta logo após a solicitação do e-mail de recuperação.
 
 ---
+
+### LoginResetPassword | API | Redefinição de senha
+
+Para redefinição de senha foi definida uma nova rota no arquivo `api.jsx`. A nova rota é chamada com os parâmetros do link recebido por e-mail.
+
+Ao enviar o formulário os parâmetros são resgatados dos query params (string `search` do `window.location`) com o método do JavaScript `URLSearchParams`.
+
+Após obter os query params e o valor do input a requisição para redefinição de senha é feita. Quando a requisição é bem sucedida o usuário é redirecionado para a tela de login.
+
+Também foi definida:
+
+- a exibição da mensagem de erro, caso exista, no Componente `ErrorBox`, com base no estado `rqError`
+- a exibição do botão desabilitado, se a requisição estiver em andamento, com base no estado `rqLoading`
+
+---
