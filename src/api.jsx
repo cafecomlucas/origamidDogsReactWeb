@@ -90,3 +90,14 @@ export const PHOTO_COMMENT_POST = (id, body, token) => ({
     body: JSON.stringify(body),
   },
 });
+
+export const PASSWORD_LOST = (body) => ({
+  url: `${API_URL}/api/password/lost`,
+  options: {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  },
+});

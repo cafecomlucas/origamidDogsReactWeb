@@ -867,3 +867,16 @@ Para exibir uma página de erro 404 foi criado o Componente `NotFound`, que é r
 Para a página de recuperação de senha foi definida a estrutura inicial no Componente `LoginRecoveryPassword`. Para acessar a página no Componente `LoginForm` foi criado um link. A rota (`login/recovery-password`) já restava configurada.
 
 ---
+
+### LoginRecoveryPassword | API | Solicitando link do reset de senha
+
+Para solicitar o link de rest de senha foi configurada a rota da API no arquivo `api.jsx`.
+
+Para fazer a requisição pra rota, no Componente `LoginRecoveryPassword` foi feita a requisição através do custom Hook `useFetch`, que passa como parâmetro o dado do input e a url pro link de reset no Front (pro Back poder enviar o e-mail com a origem/host da aplicação e o path corretos).
+
+Também foi definida:
+
+- a exibição da mensagem de erro, caso exista, no Componente `ErrorBox`, com base no estado `rqError`
+- a exibição do botão desabilitado, se a requisição estiver em andamento, com base no estado `rqLoading`
+
+---
