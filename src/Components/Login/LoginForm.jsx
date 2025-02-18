@@ -37,6 +37,13 @@ const LoginForm = () => {
           <Button>Entrar</Button>
         )}
         {appError && <ErrorBox message={appError} />}
+
+        <Link
+          className={`${styles.linkrecovery}`}
+          to="/login/recovery-password"
+        >
+          Perdeu a senha? Recupere aqui
+        </Link>
         <div className={styles.newaccount}>
           <h2 className={styles.subtitle}>Cadastre-se</h2>
           <p className={styles.description}>

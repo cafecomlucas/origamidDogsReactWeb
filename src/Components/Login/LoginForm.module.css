@@ -26,6 +26,15 @@
   margin-bottom: 1rem;
 }
 
+.linkrecovery {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: underline;
+}
+.linkrecovery:hover {
+  text-decoration: none;
+}
+
 .linkbutton {
   display: inline-block;
 }

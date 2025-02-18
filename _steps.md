@@ -861,3 +861,9 @@ Não foi necessário fazer alterações na chamada pra API, pois a API aceita ta
 Para exibir uma página de erro 404 foi criado o Componente `NotFound`, que é renderizado se a URL não for igual nenhum dos paths configurados. A chamada pro Componente `NotFound` foi configurada nos Componentes `App`, `Login`, e `Account`, que são os locais onde as rotas foram definidas para a aplicação.
 
 ---
+
+### LoginRecoveryPassword | Estrutura da página pra recuperar senha
+
+Para a página de recuperação de senha foi definida a estrutura inicial no Componente `LoginRecoveryPassword`. Para acessar a página no Componente `LoginForm` foi criado um link. A rota (`login/recovery-password`) já restava configurada.
+
+---
