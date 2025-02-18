@@ -8,7 +8,7 @@ import ErrorBox from '../../Helpers/ErrorBox';
 
 const LoginRecoveryPassword = () => {
   const username = useForm();
-  const { request, rqError, rqLoading } = useFetch();
+  const { dataJson, request, rqError, rqLoading } = useFetch();
 
   const handleSubmit = React.useCallback(
     async (e) => {
@@ -25,8 +25,15 @@ const LoginRecoveryPassword = () => {
     [username, request],
   );
 
+  if (dataJson)
+    return (
+      <section className="animeLeft">
+        <p style={{ color: '#4c1' }}>{dataJson}</p>
+      </section>
+    );
+
   return (
-    <section className="container mainContainer">
+    <section className="animeLeft">
       <h1 className="title">Recuperar a senha</h1>
       <form onSubmit={handleSubmit}>
         <Input

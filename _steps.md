@@ -880,3 +880,11 @@ Também foi definida:
 - a exibição do botão desabilitado, se a requisição estiver em andamento, com base no estado `rqLoading`
 
 ---
+
+### LoginResetPassword | Estrutura da página pra redefinir senha
+
+Para a página de redefinição de senha foi criada a estrutura inicial no Componente `LoginResetPassword`. O acesso a página é feito via link recebido por e-mail. A rota (`login/reset-password`) já restava configurada.
+
+Também foi feito um ajuste no Componente `LoginRecoveryPassword` para exibir a mensagem de resposta logo após a solicitação do e-mail de recuperação.
+
+---
