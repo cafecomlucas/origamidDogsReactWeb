@@ -6,6 +6,7 @@ import AccountStats from './AccountStats';
 import AccountNewPhoto from './AccountNewPhoto';
 import AccountScreen from './AccountScreen';
 import NotFound from '../NotFound';
+import Head from '../../Helpers/Head';
 
 const Account = () => {
   const { isUserLoggedIn } = React.useContext(UserContext);
@@ -17,6 +18,7 @@ const Account = () => {
         path="/"
         element={
           <AccountScreen title="Minhas Fotos">
+            <Head title="Minhas fotos" />
             <AccountPhotosFeed />
           </AccountScreen>
         }
@@ -25,6 +27,7 @@ const Account = () => {
         path="/new-photo"
         element={
           <AccountScreen title="Adicionar Foto">
+            <Head title="Adicionar Foto" />
             <AccountNewPhoto />
           </AccountScreen>
         }
@@ -33,6 +36,7 @@ const Account = () => {
         path="/stats"
         element={
           <AccountScreen title="Estatísticas">
+            <Head title="Estatísticas" />
             <AccountStats />
           </AccountScreen>
         }

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import styles from './LoginForm.module.css';
 import stylesBtn from '../Forms/Button.module.css';
 import ErrorBox from '../../Helpers/ErrorBox';
+import Head from '../../Helpers/Head';
 
 const LoginForm = () => {
   const username = useForm();
@@ -27,7 +28,8 @@ const LoginForm = () => {
 
   return (
     <section className="animeLeft">
-      <h1 className="title">Login</h1>
+      <Head title="Acessar conta" />
+      <h1 className="title">Acessar conta</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />

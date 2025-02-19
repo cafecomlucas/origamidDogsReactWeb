@@ -903,3 +903,14 @@ Também foi definida:
 - a exibição do botão desabilitado, se a requisição estiver em andamento, com base no estado `rqLoading`
 
 ---
+
+### Head | Helper para alteração do título de cada página
+
+Na raiz do projeto foi criado o Componente `Head` que altera o título da página (`document.title`). Esse Componente foi adicionado em todas as páginas da aplicação.
+
+Algumas observações:
+
+- Na página da conta de usuário (Componente `ProfilePage`) foi possível utilizar o nome do usuário para composição do título.
+- Na config das rotas da conta de usuário (Componente `Account`) foi possível definir todos os títulos de cada página nesse mesmo componente e não foi necessário entrar em cada Componente de cada rota. Como a estrutura criada anteriormente com o Componente `AccountScreen` permite adicionar outros Componentes filho, isso facilitou para definir o Head logo antes do Componente de conteúdo, ambos em um lugar só.
+
+---

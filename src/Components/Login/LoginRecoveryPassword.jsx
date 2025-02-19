@@ -5,6 +5,7 @@ import React from 'react';
 import { PASSWORD_LOST } from '../../api';
 import useFetch from '../../Hooks/useFetch';
 import ErrorBox from '../../Helpers/ErrorBox';
+import Head from '../../Helpers/Head';
 
 const LoginRecoveryPassword = () => {
   const username = useForm();
@@ -34,7 +35,8 @@ const LoginRecoveryPassword = () => {
 
   return (
     <section className="animeLeft">
-      <h1 className="title">Recuperar a senha</h1>
+      <Head title="Recuperar senha" />
+      <h1 className="title">Recuperar senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
           label="Nome de usuário (e-mail):"
