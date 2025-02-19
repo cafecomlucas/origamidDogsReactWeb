@@ -41,11 +41,18 @@ a {
 }
 
 .appWrapper {
+  display: flex;
+  flex-direction: column;
   transition: .4s opacity ease-in-out;
 }
 
 .isAppLoading {
   opacity: 0.5;
+}
+
+.appBody {
+  min-height: 100vh;
+  flex: 1;
 }
 
 .animeLeft {

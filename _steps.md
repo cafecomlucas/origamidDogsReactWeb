@@ -914,3 +914,20 @@ Algumas observações:
 - Na config das rotas da conta de usuário (Componente `Account`) foi possível definir todos os títulos de cada página nesse mesmo componente e não foi necessário entrar em cada Componente de cada rota. Como a estrutura criada anteriormente com o Componente `AccountScreen` permite adicionar outros Componentes filho, isso facilitou para definir o Head logo antes do Componente de conteúdo, ambos em um lugar só.
 
 ---
+
+### Footer | Conteúdo e estilo no rodapé da aplicação
+
+Para o rodapé da aplicação, no Componente `Footer` foi incluído:
+
+- Um SVG com o logo da aplicação
+- Um conteúdo de texto
+- A estilização com fundo colorido e altura mínima
+
+Melhorando a experiência do usuário: Para o rodapé sempre ficar após o corpo da página, a estilização do Componente `App` também foi modificado:
+
+- a classe `appWrapper` foi definido o `display: flex` e `flex-direction: column`
+- a classe `appBody` foi definido o `min-height: 100vh` e `flex: 1`
+
+Assim a altura mínima sempre "empurra" o rodapé para além da área visível, evitando assim que o rodapé inicie no meio da tela para depois "pular" quando o conteúdo da aplicação termina de carregar.
+
+---

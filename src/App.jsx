@@ -17,14 +17,16 @@ const App = () => {
       <UserContextStorage>
         <AppWrapper>
           <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="login/*" element={<Login />} />
-            <Route path="account/*" element={<Account />} />
-            <Route path="photo/:photoId" element={<PhotoPage />} />
-            <Route path="profile/:userAuthor" element={<ProfilePage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <main className="appBody">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="login/*" element={<Login />} />
+              <Route path="account/*" element={<Account />} />
+              <Route path="photo/:photoId" element={<PhotoPage />} />
+              <Route path="profile/:userAuthor" element={<ProfilePage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
           <Footer />
         </AppWrapper>
       </UserContextStorage>
