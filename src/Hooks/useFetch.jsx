@@ -13,8 +13,14 @@ const useFetch = () => {
       setRqError(null);
       response = await fetch(url, options);
       if (!response.ok) {
-        const { message } = await response.json();
-        throw new Error(message);
+        const { message, status } = await response.json();
+        if (message) {
+          throw new Error(message);
+        } else if (response.status) {
+          throw new Error(`Erro ${status}`);
+        } else {
+          throw new Error(`Erro desconhecido`);
+        }
       }
       resJson = await response.json();
     } catch (err) {

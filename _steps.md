@@ -993,3 +993,12 @@ Como a biblioteca `victory` só é chamada dentro do Componente `AccountStatsGra
 Para exibir o status de carregamento e o status de erro corretamente foi necessário ajustar a estrutura dos Componentes `AccountStats` e `AccountStatsGraphs`.
 
 ---
+
+### useFetch | customHook | Bugfix: mensagens de erro alternativas
+
+Foi feito um ajuste no custom hook `useFetch` para quando não vier nenhuma mensagem de específica de erro do servidor. As alternativas são:
+
+- Exibir o Erro com o código do erro, se o `status` estiver definido
+- Exibir `Erro desconhecido` nos demais casos
+
+---
