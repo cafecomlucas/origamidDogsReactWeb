@@ -1,0 +1,17 @@
+.statsWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.statsItem {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+}
+
+.allPhotoViews {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}

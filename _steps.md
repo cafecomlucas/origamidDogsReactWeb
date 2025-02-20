@@ -931,3 +931,14 @@ Melhorando a experiência do usuário: Para o rodapé sempre ficar após o corpo
 Assim a altura mínima sempre "empurra" o rodapé para além da área visível, evitando assim que o rodapé inicie no meio da tela para depois "pular" quando o conteúdo da aplicação termina de carregar.
 
 ---
+
+### AccountStats | API | Nova página de estatísticas
+
+Para exibir os dados das estatísticas da conta do usuário:
+
+- No arquivo `api.jsx` foi adicionada a config para obter os dados
+- Foi criada a estrutura e os estilos da nova página no Componente `AccountStatsGraphs`
+
+No Componente `AccountStatsGraphs`, assim que o componente inicializa é feita uma chamada pro novo método `getStats`, que faz a chamada pra API, obtendo um Array de objetos com os dados de visualização de cada foto do usuário. O total de visualizações é somado percorendo o Array através do método `reduce` e exibidas em tela ao setar o novo dado do estado `allPhotoViews`.
+
+---

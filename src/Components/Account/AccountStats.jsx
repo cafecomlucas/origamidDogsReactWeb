@@ -1,5 +1,11 @@
+import AccountStatsGraphs from './AccountStatsGraphs';
+
 const AccountStats = () => {
-  return <p>Stats</p>;
+  return (
+    <section className="animeLeft">
+      <AccountStatsGraphs />
+    </section>
+  );
 };
 
 export default AccountStats;
