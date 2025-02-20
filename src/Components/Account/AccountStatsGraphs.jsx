@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './AccountStatsGraphs.module.css';
 import { STATS_GET } from '../../api';
 import useFetch from '../../Hooks/useFetch';
-import { VictoryPie } from 'victory';
+import { VictoryPie, VictoryChart, VictoryBar } from 'victory';
 
 const AccountStatsGraphs = () => {
   const [allPhotoViews, setAllPhotoViews] = React.useState(0);
@@ -61,6 +61,11 @@ const AccountStatsGraphs = () => {
             },
           }}
         />
+      </div>
+      <div className={styles.statsItem}>
+        <VictoryChart>
+          <VictoryBar alignment="start" data={graphData}></VictoryBar>
+        </VictoryChart>
       </div>
     </div>
   );

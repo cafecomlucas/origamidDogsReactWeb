@@ -954,3 +954,9 @@ npm install victory
 A dependência foi importada no Componente `AccountStatsGraphs` e foi criada a estrutura para exibição do gráfico de pizza com o Componente `VictoryPie`. Os dados para o gráfico funcionar são os mesmos dados do Array que vem da API, modificados com o método `reduce` para ficar do jeito que o Componente `VictoryPie` precisa. Os dados modificados são setados no estado `graphData` e passados via prop `data` pro Componente `VictoryPie`.
 
 ---
+
+### AccountStats | Adicionando gráfico de barra
+
+Para exibir o gráfico de barras no Componente `AccountStats` foi importado os Compontentes `VictoryChart` e `VictoryBar`. Os dados utilizados são os mesmos utilizados no gráfico de pizza (estado `graphData`).
+
+---
