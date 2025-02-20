@@ -960,3 +960,20 @@ A dependência foi importada no Componente `AccountStatsGraphs` e foi criada a e
 Para exibir o gráfico de barras no Componente `AccountStats` foi importado os Compontentes `VictoryChart` e `VictoryBar`. Os dados utilizados são os mesmos utilizados no gráfico de pizza (estado `graphData`).
 
 ---
+
+### AccountStats | Definindo a responsividade dos blocos de estatísticas
+
+Para a responsividade da aplicação o CSS do Componente `AccountStatsGraphs` foi alterado, ficando assim:
+
+#### Desktop
+
+- Duas colunas definidas
+- O primeiro bloco (total de visualizações) ocupa as duas colunas, jogando os outros blocos para baixo
+- Os 2 blocos restantes (gráfico de pizza e gráfico de barra) ocupam cada um uma coluna, ficando logo abaixo do primeiro bloco (total de visualizações)
+
+#### Mobile
+
+- Apenas uma coluna definida
+- Todos os blocos ocupam a mesma coluna, ficando um bloco abaixo do outro
+
+---
