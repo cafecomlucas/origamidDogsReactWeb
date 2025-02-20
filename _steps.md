@@ -942,3 +942,15 @@ Para exibir os dados das estatísticas da conta do usuário:
 No Componente `AccountStatsGraphs`, assim que o componente inicializa é feita uma chamada pro novo método `getStats`, que faz a chamada pra API, obtendo um Array de objetos com os dados de visualização de cada foto do usuário. O total de visualizações é somado percorendo o Array através do método `reduce` e exibidas em tela ao setar o novo dado do estado `allPhotoViews`.
 
 ---
+
+### AccountStats | Adicionando gráfico de pizza
+
+Para adicionar o gráfico de pizza foi instalada uma dependência que lida com gráficos chamada "victory":
+
+```
+npm install victory
+```
+
+A dependência foi importada no Componente `AccountStatsGraphs` e foi criada a estrutura para exibição do gráfico de pizza com o Componente `VictoryPie`. Os dados para o gráfico funcionar são os mesmos dados do Array que vem da API, modificados com o método `reduce` para ficar do jeito que o Componente `VictoryPie` precisa. Os dados modificados são setados no estado `graphData` e passados via prop `data` pro Componente `VictoryPie`.
+
+---
