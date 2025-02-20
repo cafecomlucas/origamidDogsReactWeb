@@ -19,9 +19,7 @@ const AccountStatsGraphs = () => {
 
   React.useEffect(() => {
     if (dataJson) {
-      console.log('--> dataJson: ', dataJson);
-      console.log('<<<<<<<<<<<<<');
-      // sum views for all photos
+      // sum all photos views
       const sumAllPhotoViews = dataJson.reduce((prev, crr) => {
         return prev + crr.acessos;
       }, 0);

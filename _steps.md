@@ -977,3 +977,13 @@ Para a responsividade da aplicação o CSS do Componente `AccountStatsGraphs` fo
 - Todos os blocos ocupam a mesma coluna, ficando um bloco abaixo do outro
 
 ---
+
+### AccountStats | Importação com Lazy/Suspense | Otimizando o carregamento do JS
+
+O Componente `AccountStats` foi modificado para que a lib `victory` carregue apenas na tela de estatíticas utilizando a importação com o `lazy` e a estruturação com o `Suspense` do React.
+
+Dessa forma o Componente `AccountStatsGraphs` não segue o padrão do React de "pré-carregamento" e só importa o Componente `AccountStatsGraphs` quando realmente é necessário.
+
+Como a biblioteca `victory` só é chamada dentro do Componente `AccountStatsGraphs`, a importação dela agora só é feita ao acessar a página de Estatísticas.
+
+---
