@@ -5,9 +5,7 @@ const AccountStatsGraphs = React.lazy(() => import('./AccountStatsGraphs'));
 const AccountStats = () => {
   return (
     <React.Suspense fallback={<Loading />}>
-      <section className="animeLeft">
-        <AccountStatsGraphs />
-      </section>
+      <AccountStatsGraphs />
     </React.Suspense>
   );
 };

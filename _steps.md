@@ -987,3 +987,9 @@ Dessa forma o Componente `AccountStatsGraphs` não segue o padrão do React de "
 Como a biblioteca `victory` só é chamada dentro do Componente `AccountStatsGraphs`, a importação dela agora só é feita ao acessar a página de Estatísticas.
 
 ---
+
+### AccountStats | Ajustes nos estilos de carregamento e erro
+
+Para exibir o status de carregamento e o status de erro corretamente foi necessário ajustar a estrutura dos Componentes `AccountStats` e `AccountStatsGraphs`.
+
+---
