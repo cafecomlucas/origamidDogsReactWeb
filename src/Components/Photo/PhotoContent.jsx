@@ -8,9 +8,10 @@ import Image from '../../Helpers/Image';
 import { UserContext } from '../../UserContext';
 import PhotoDelete from './PhotoDelete';
 import PhotoComments from './PhotoComments';
+import ErrorBox from '../../Helpers/ErrorBox';
 
 const PhotoContent = ({ photoId, isPage }) => {
-  const { request, dataJson, rqLoading } = useFetch();
+  const { request, dataJson, rqLoading, rqError } = useFetch();
   const { userData } = React.useContext(UserContext);
 
   React.useEffect(() => {
@@ -18,6 +19,7 @@ const PhotoContent = ({ photoId, isPage }) => {
     request(url, options);
   }, [request, photoId]);
 
+  if (rqError) return <ErrorBox message={rqError} />;
   if (rqLoading) return <Loading />;
   if (dataJson) {
     const { photo, comments } = dataJson;
@@ -52,6 +54,7 @@ const PhotoContent = ({ photoId, isPage }) => {
       </div>
     );
   }
+  return null;
 };
 
 export default PhotoContent;

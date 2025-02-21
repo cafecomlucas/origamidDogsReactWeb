@@ -13,11 +13,11 @@ const PhotosFeedModal = ({ userId = 0 }) => {
     // slow down the multiple funcion call by multiple events (wheel/scroll)
     const msLastTime = lastTime.current - Date.now();
     lastTime.current = Date.now();
-    if (msLastTime > -200 || isLastPage) return;
+    if (msLastTime > -100 || isLastPage) return;
 
     const { offsetHeight } = document.body;
     const { innerHeight, scrollY } = window;
-    const heightLimit = (offsetHeight - innerHeight) * 0.75;
+    const heightLimit = (offsetHeight - innerHeight) * 0.3;
     if (scrollY > heightLimit && isPageLoaded) {
       setPageLoaded(false);
       setPageList((pageList) => [...pageList, pageList.length + 1]);
@@ -46,6 +46,17 @@ const PhotosFeedModal = ({ userId = 0 }) => {
           setPhotoId={setPhotoId}
         />
       ))}
+      {isLastPage && (
+        <p
+          style={{
+            textAlign: 'center',
+            padding: '2rem 0 4rem 0',
+            color: '#888',
+          }}
+        >
+          Não existem mais postagens.
+        </p>
+      )}
     </>
   );
 };

@@ -4,6 +4,7 @@ import useFetch from '../../Hooks/useFetch';
 import PhotoFeedItem from './PhotoFeedItem';
 import Loading from '../../Helpers/Loading';
 import styles from './PhotosFeed.module.css';
+import ErrorBox from '../../Helpers/ErrorBox';
 
 const PhotosFeed = ({
   userId,
@@ -12,8 +13,8 @@ const PhotosFeed = ({
   setPageLoaded,
   setIsLastPage,
 }) => {
-  const { request, dataJson, rqLoading } = useFetch();
-  const totalItens = 3;
+  const { request, dataJson, rqLoading, rqError } = useFetch();
+  const totalItens = 6;
 
   const getPage = React.useCallback(async () => {
     const { url, options } = PHOTOS_GET({
@@ -37,6 +38,7 @@ const PhotosFeed = ({
     getPage();
   }, [getPage]);
 
+  if (rqError) return <ErrorBox message={rqError} />;
   if (rqLoading) return <Loading />;
   return (
     dataJson && (

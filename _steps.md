@@ -1001,4 +1001,19 @@ Foi feito um ajuste no custom hook `useFetch` para quando não vier nenhuma mens
 - Exibir o Erro com o código do erro, se o `status` estiver definido
 - Exibir `Erro desconhecido` nos demais casos
 
+`.
+
+---
+
+### Toques finais | conteúdo, estilo, scrool, carregamento, erro
+
+Para os toques finais do app foi feito:
+
+- A inclusão dos ícones da aplicação (favicon/pngs)
+- O ajuste na quantidade de fotos carregadas por página para `6`
+- O ajuste nos parâmetros do scroll infinito
+- O ajuste na animação do `Loading`, foi adicionado um pequeno delay pra evitar o efeito de "tela piscando" em conexões muito rápidas
+- O ajuste em alguns Componentes para retornar `null` se as outras condições não forem atendidas
+- A inclusão do `ErrorBox` que ficou faltando em alguns Componentes
+
 ---

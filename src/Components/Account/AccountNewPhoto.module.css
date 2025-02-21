@@ -4,6 +4,13 @@
   gap: 2rem;
 }
 
+@media (max-width: 30rem) {
+  .newPhotoContainer {
+    grid-template-columns: 1fr;
+    margin-bottom: 1rem;
+  }
+}
+
 .imgPreview {
   border-radius: 1rem;
   border: 1px solid #ccc;

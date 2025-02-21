@@ -41,7 +41,7 @@ const AccountStatsGraphs = () => {
 
   if (rqError) return <ErrorBox message={rqError} />;
   if (rqLoading) return <Loading />;
-  if (dataJson)
+  if (dataJson) {
     return (
       <section className="animeLeft">
         <div className={styles.statsWrapper}>
@@ -74,6 +74,8 @@ const AccountStatsGraphs = () => {
         </div>
       </section>
     );
+  }
+  return null;
 };
 
 export default AccountStatsGraphs;

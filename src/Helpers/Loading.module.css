@@ -7,6 +7,14 @@
   display: flex;
   background: rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  opacity: 0;
+  animation: 0.1s showLoading 0.4s forwards;
+}
+
+@keyframes showLoading {
+  to {
+    opacity: 1;
+  }
 }
 
 .loadingCirc {

@@ -4,7 +4,7 @@ import PhotosFeedModal from './PhotosFeed/PhotosFeedModal';
 const Home = () => {
   return (
     <section className="container mainContainer">
-      <Head title="Fotos de usuários" />
+      <Head title="Vida de cachorro" />
       <PhotosFeedModal />
     </section>
   );
